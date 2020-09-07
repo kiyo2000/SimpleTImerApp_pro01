@@ -12,7 +12,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name = "Home" component = {HomeScreen} />
+    {/* <Stack.Screen name = "Home" component = {HomeScreen} /> */}
+        <Stack.Screen name = "Home">
+          { (props) => <HomeScreen  {...props} text="- Welcome to your personal timer -" /> }
+        </Stack.Screen>
         <Stack.Screen name = "Timer" component = {TimerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
