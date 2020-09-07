@@ -4,11 +4,11 @@ import { useNavigation } from '@react-navigation/native'
 
 
 export const HomeScreen = (props) => {
-    const naviagtion = useNavigation()
+    const navigation = useNavigation()
     return (
         <View>
             <Text style={styles.title}> - Home Screen - </Text>
-            <Button title="Use Timer" />
+            <Button title="Use Timer" onPress = { () => {navigation.navigate("Timer")}} />
         </View>
     );
 }
