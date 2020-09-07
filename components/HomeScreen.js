@@ -1,11 +1,14 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 
 export const HomeScreen = (props) => {
+    const naviagtion = useNavigation()
     return (
         <View>
             <Text style={styles.title}> - Home Screen - </Text>
+            <Button title="Use Timer" />
         </View>
     );
 }
