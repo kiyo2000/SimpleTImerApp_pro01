@@ -12,6 +12,7 @@ export const TimerScreen = (props) => {
 
 const styles = StyleSheet.create({
     title: {
-      textAlign: 'center'
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
   });

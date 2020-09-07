@@ -16,6 +16,7 @@ export const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
     title: {
-      textAlign: 'center'
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
   });
