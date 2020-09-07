@@ -6,20 +6,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //Establishin the connection bewtween HomeScreen.js
 import { HomeScreen } from './components/HomeScreen'
+import { TimerScreen } from './components/TimerScreen'
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name = "Home" component = {HomeScreen} />
+        <Stack.Screen name = "Timer" component = {TimerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
 
-
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
   );
 }
 
