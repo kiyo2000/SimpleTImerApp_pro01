@@ -35,11 +35,16 @@ export const AuthScreen = ( props ) => {
             // register view
             <View style={styles.container}>
                 <Text style={styles.title}>- SIGNUP -</Text>
-                <TextInput style={styles.input} placeholder="you@email.com"  />
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="you@email.com"  
+                    onChangeText={(email) => validateEmail(email) } //passing paramter to be not empty 
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="min 6 characters"
                     secureTextEntry={true} 
+                    onChangeText={(password) => validatePassword(password) } //passing paramter to be not empty
                 />
                 <TouchableOpacity 
                   //style={styles.button} -> changed to below. styles can be loaded for true/false purpose
