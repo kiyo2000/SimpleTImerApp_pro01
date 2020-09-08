@@ -8,6 +8,9 @@ export const AuthScreen = ( props ) => {
     // hooks for validation
     const [validEmail,setValidEmail] = useState(false)
     const [validPassword,setValidPassword] = useState(false)
+    // hooks for referecning user credentials
+    const [email,setEmail] = useState(null)
+    const [password, setPassword] = useState(null)
     
     // access the property of useNavigation
     const navigation = useNavigation()
@@ -38,19 +41,20 @@ export const AuthScreen = ( props ) => {
                 <TextInput 
                     style={styles.input} 
                     placeholder="you@email.com"  
-                    onChangeText={(email) => validateEmail(email) } //passing paramter to be not empty 
+                    onChangeText={(email) => validateEmail(email) } //passing parameter to be not empty 
                 />
                 <TextInput
                     style={styles.input}
                     placeholder="min 6 characters"
                     secureTextEntry={true} 
-                    onChangeText={(password) => validatePassword(password) } //passing paramter to be not empty
+                    onChangeText={(password) => validatePassword(password) } //passing parameter to be not empty
                 />
                 <TouchableOpacity 
                   //style={styles.button} -> changed to below. styles can be loaded for true/false purpose
                     style={ !validEmail || !validPassword ?  styles.buttonDisabled : styles.button }
                     // disable the button function by seting useState false.
                     disabled={ !validEmail || !validPassword ? true : false }
+                    
                 >
                     <Text style={styles.buttonText}>- SIGNUP -</Text>
                 </TouchableOpacity>

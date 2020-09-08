@@ -25,10 +25,30 @@ import { TimerScreen } from './components/TimerScreen'
 import { AuthScreen } from './components/AuthScreen'
 
 export default function App() {
+
+    //Connect wiht firebase. Use catch to throw an exception
+    const singup = (email, password) => {
+      firebase.auth().createUserWithEmailAndPassword(email,password)
+      .catch(error => console.log(error) )
+    }
+    //Check if user is logged in or not 
+    firebase.auth().onAuthStateChanged( (user) => {
+      if( user ) {
+        console.log('user not logged in')
+      }
+      else {
+        console.log('user not logged in')
+      }
+    } )
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name = "Signup" component={AuthScreen} />
+    {/* <Stack.Screen name = "Signup" component={AuthScreen} /> */}
+    <Stack.Screen name = "Signup" >
+      { (props) => <AuthScreen {...props} singup={ singup } />}
+    </Stack.Screen>
+    
     {/* <Stack.Screen name = "Home" component = {HomeScreen} /> */}
         <Stack.Screen name = "Home">
           {/* Passing object via props */}
