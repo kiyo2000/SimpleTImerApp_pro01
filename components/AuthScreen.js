@@ -19,6 +19,7 @@ export const AuthScreen = ( props ) => {
     const validateEmail = (email) => {
         if(email.indexOf('@') > 0 && email.indexOf('.') > 0){
             setValidEmail( true)
+            setEmail( email )
         }
         else {
             setValidEmail( false )
@@ -27,6 +28,7 @@ export const AuthScreen = ( props ) => {
     const validatePassword = (password) => {
         if( password.length >= 6 ){
             setValidPassword( true)
+            setPassword( password )
         }
         else {
             setValidPassword( false )
@@ -54,7 +56,7 @@ export const AuthScreen = ( props ) => {
                     style={ !validEmail || !validPassword ?  styles.buttonDisabled : styles.button }
                     // disable the button function by seting useState false.
                     disabled={ !validEmail || !validPassword ? true : false }
-                    
+                    onPress ={ () => { props.signup(email,password) } }
                 >
                     <Text style={styles.buttonText}>- SIGNUP -</Text>
                 </TouchableOpacity>

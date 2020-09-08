@@ -11,9 +11,9 @@ import { firebaseConfig } from './config/firebase'
 import * as firebase from 'firebase'
 
 // // Initialise firebase
-if ( !firebase.app.length){
+//if ( !firebase.app.length){
 firebase.initializeApp( firebaseConfig )
-}
+//}
 
 // if ( !firebase.app.length){
 // firebase.initializeApp( firebaseConfig)
@@ -26,15 +26,15 @@ import { AuthScreen } from './components/AuthScreen'
 
 export default function App() {
 
-    //Connect wiht firebase. Use catch to throw an exception
-    const singup = (email, password) => {
+    //Pass email and password to firebase. Use catch to throw an exception
+    const signup = (email, password) => {
       firebase.auth().createUserWithEmailAndPassword(email,password)
       .catch(error => console.log(error) )
     }
     //Check if user is logged in or not 
     firebase.auth().onAuthStateChanged( (user) => {
       if( user ) {
-        console.log('user not logged in')
+        console.log('user logged in')
       }
       else {
         console.log('user not logged in')
@@ -46,7 +46,7 @@ export default function App() {
       <Stack.Navigator>
     {/* <Stack.Screen name = "Signup" component={AuthScreen} /> */}
     <Stack.Screen name = "Signup" >
-      { (props) => <AuthScreen {...props} singup={ singup } />}
+      { (props) => <AuthScreen {...props} signup={ signup } />}
     </Stack.Screen>
     
     {/* <Stack.Screen name = "Home" component = {HomeScreen} /> */}
