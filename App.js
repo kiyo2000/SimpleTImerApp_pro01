@@ -11,6 +11,10 @@ import { firebaseConfig } from './config/firebase'
 import * as firebase from 'firebase'
 
 // // Initialise firebase
+if ( !firebase.app.length){
+firebase.initializeApp( firebaseConfig )
+}
+
 // if ( !firebase.app.length){
 // firebase.initializeApp( firebaseConfig)
 // }
