@@ -9,7 +9,9 @@ import { firebaseConfig } from './config/firebase'
 //Import Firebase library after installing fire base via expo
 import * as firebase from 'firebase'
 // Initialise firebase
+if ( !firebase.app.length){
 firebase.initializeApp( firebaseConfig)
+}
 
 //Establishin the connection bewtween HomeScreen.js
 import { HomeScreen } from './components/HomeScreen'
