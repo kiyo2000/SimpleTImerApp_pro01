@@ -49,7 +49,10 @@ export const AuthScreen = ( props ) => {
     <TouchableOpacity>
         <Text style={styles.altText}>Don't have an account?</Text>
     </TouchableOpacity>
-    <TouchableOpacity style={styles.altButton}>
+    <TouchableOpacity 
+        style={styles.altButton}
+        onPress={ () => { setLogin(false) } }
+    >
         <Text style={styles.altButtonText}>Sign Up</Text>
     </TouchableOpacity>
     </View>
