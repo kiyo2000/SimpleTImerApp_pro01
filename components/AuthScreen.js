@@ -31,8 +31,25 @@ export const AuthScreen = ( props ) => {
     }
     else {
         return
-        // login view
-        <View> </View>
+        // Sign in view
+        <View style={styles.container}>
+        <Text style={styles.title}>- SIGNUP -</Text>
+        <TextInput style={styles.input} placeholder="you@email.com"  />
+        <TextInput
+            style={styles.input}
+            placeholder="min 6 characters"
+            secureTextEntry={true} 
+        />
+    <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>- SIGNUP -</Text>
+    </TouchableOpacity>
+    <TouchableOpacity>
+        <Text style={styles.altText}>Already have an account?</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.altButton}>
+        <Text style={styles.altButtonText}>Sign In</Text>
+    </TouchableOpacity>
+    </View>
     }
 }
 
