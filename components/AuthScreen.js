@@ -42,8 +42,10 @@ export const AuthScreen = ( props ) => {
                     secureTextEntry={true} 
                 />
                 <TouchableOpacity 
-                    style={styles.button}
-                    disabled={ !validEmail && !validPassword ? true : false }
+                  //style={styles.button} -> changed to below. styles can be loaded for true/false purpose
+                    style={ !validEmail || !validPassword ?  styles.buttonDisabled : styles.button }
+                    // disable the button function by seting useState false.
+                    disabled={ !validEmail || !validPassword ? true : false }
                 >
                     <Text style={styles.buttonText}>- SIGNUP -</Text>
                 </TouchableOpacity>
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
 
     buttonDisabled: {
         padding: 10,
-        backgroundColor: '888888',
+        backgroundColor: '#888888',
     },
 
     altText :{
