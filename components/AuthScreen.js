@@ -17,45 +17,42 @@ export const AuthScreen = ( props ) => {
                     placeholder="min 6 characters"
                     secureTextEntry={true} 
                 />
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>- SIGNUP -</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={styles.altText}>Already have an account?</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-                style={styles.altButton}
-                onPress={ () => { setLogin(true) } }
-            >
-                <Text style={styles.altButtonText}>Sign In</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>- SIGNUP -</Text>
+                </TouchableOpacity>
+                    <Text style={styles.altText}>Already have an account?</Text>
+                <TouchableOpacity 
+                    style={styles.altButton}
+                    onPress={ () => { setLogin(true) } }
+                >
+                    <Text style={styles.altButtonText}>Sign In</Text>
+                </TouchableOpacity>
             </View>
         )
     }
     else {
-        return
+        return (
         // Sign in view
-        <View style={styles.container}>
-        <Text style={styles.title}>- SIGNIN -</Text>
-        <TextInput style={styles.input} placeholder="you@email.com"  />
-        <TextInput
-            style={styles.input}
-            placeholder="your password"
-            secureTextEntry={true} 
-        />
-    <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>- SIGNIN -</Text>
-    </TouchableOpacity>
-    <TouchableOpacity>
-        <Text style={styles.altText}>Don't have an account?</Text>
-    </TouchableOpacity>
-    <TouchableOpacity 
-        style={styles.altButton}
-        onPress={ () => { setLogin(false) } }
-    >
-        <Text style={styles.altButtonText}>Sign Up</Text>
-    </TouchableOpacity>
-    </View>
+            <View style={styles.container}>
+                <Text style={styles.title}>- SIGNIN -</Text>
+                <TextInput style={styles.input} placeholder="you@email.com"  />
+                <TextInput
+                    style={styles.input}
+                    placeholder="your password"
+                    secureTextEntry={true} 
+                />
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>- SIGNIN -</Text>
+                </TouchableOpacity>
+                    <Text style={styles.altText}>Don't have an account?</Text>
+                <TouchableOpacity 
+                    style={styles.altButton}
+                    onPress={ () => { setLogin(false) } }
+                >
+                    <Text style={styles.altButtonText}>Sign Up</Text>
+                </TouchableOpacity>
+            </View>
+        )
     }
 }
 
