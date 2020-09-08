@@ -5,9 +5,31 @@ import { useNavigatinon, useNavigation } from '@react-navigation/native'
 export const AuthScreen = ( props ) => {
     //use hook to show different screens\
     const [login, setLogin] = useState(false)
+    // hooks for validation
+    const [validEmail,setValidEmail] = useState(false)
+    const [validPassword,setValidPassword] = useState(false)
+    
     // access the property of useNavigation
     const navigation = useNavigation()
 
+    // validate email & password
+    const validateEmail = (email) => {
+        if(email.indexOf('@') > 0 && email.indexOf('.') > 0){
+            setValidEmail( true)
+        }
+        else {
+            setValidEmail( false )
+        }
+    }
+    const validatePassword = (password) => {
+        if( password.length >= 6 ){
+            setValidPassword( true)
+        }
+        else {
+            setValidPassword( false )
+        }
+    }
+    
     if (!login) {
         return (
             // register view
@@ -19,7 +41,10 @@ export const AuthScreen = ( props ) => {
                     placeholder="min 6 characters"
                     secureTextEntry={true} 
                 />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    disabled={ !validEmail && !validPassword ? true : false }
+                >
                     <Text style={styles.buttonText}>- SIGNUP -</Text>
                 </TouchableOpacity>
                     <Text style={styles.altText}>Already have an account?</Text>
@@ -95,6 +120,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
+    },
+
+    buttonDisabled: {
+        padding: 10,
+        backgroundColor: '888888',
     },
 
     altText :{
