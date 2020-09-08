@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Button } from 'react-native'
-import { useNavigatinon } from '@react-navigation/native'
+import { useNavigatinon, useNavigation } from '@react-navigation/native'
 
 export const AuthScreen = ( props ) => {
     //use hook to show different screens\
     const [login, setLogin] = useState(false)
+    // access the property of useNavigation
+    const navigation = useNavigation()
 
     if (!login) {
         return (
@@ -23,7 +25,10 @@ export const AuthScreen = ( props ) => {
                     <Text style={styles.altText}>Already have an account?</Text>
                 <TouchableOpacity 
                     style={styles.altButton}
-                    onPress={ () => { setLogin(true) } }
+                    onPress={ () => { 
+                        setLogin(true) 
+                        navigation.setOptions({title: "SIGNIN"})
+                    } }
                 >
                     <Text style={styles.altButtonText}>Sign In</Text>
                 </TouchableOpacity>
@@ -47,7 +52,10 @@ export const AuthScreen = ( props ) => {
                     <Text style={styles.altText}>Don't have an account?</Text>
                 <TouchableOpacity 
                     style={styles.altButton}
-                    onPress={ () => { setLogin(false) } }
+                    onPress={ () => { 
+                        setLogin(false) 
+                        navigation.setOptions({title: "SIGNUP"})
+                    } }
                 >
                     <Text style={styles.altButtonText}>Sign Up</Text>
                 </TouchableOpacity>
