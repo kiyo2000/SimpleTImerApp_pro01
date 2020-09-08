@@ -23,7 +23,10 @@ export const AuthScreen = ( props ) => {
             <TouchableOpacity>
                 <Text style={styles.altText}>Already have an account?</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.altButton}>
+            <TouchableOpacity 
+                style={styles.altButton}
+                onPress={ () => { setLogin(true) } }
+            >
                 <Text style={styles.altButtonText}>Sign In</Text>
             </TouchableOpacity>
             </View>
@@ -33,21 +36,21 @@ export const AuthScreen = ( props ) => {
         return
         // Sign in view
         <View style={styles.container}>
-        <Text style={styles.title}>- SIGNUP -</Text>
+        <Text style={styles.title}>- SIGNIN -</Text>
         <TextInput style={styles.input} placeholder="you@email.com"  />
         <TextInput
             style={styles.input}
-            placeholder="min 6 characters"
+            placeholder="your password"
             secureTextEntry={true} 
         />
     <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>- SIGNUP -</Text>
+        <Text style={styles.buttonText}>- SIGNIN -</Text>
     </TouchableOpacity>
     <TouchableOpacity>
-        <Text style={styles.altText}>Already have an account?</Text>
+        <Text style={styles.altText}>Don't have an account?</Text>
     </TouchableOpacity>
     <TouchableOpacity style={styles.altButton}>
-        <Text style={styles.altButtonText}>Sign In</Text>
+        <Text style={styles.altButtonText}>Sign Up</Text>
     </TouchableOpacity>
     </View>
     }
