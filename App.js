@@ -4,6 +4,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+//Import Firebase config here
+import { firebaseConfig } from './config/firebase'
+//Import Firebase library after installing fire base via expo
+import * as firebase from 'firebase'
+// Initialise firebase
+firebase.initializeApp( firebaseConfig)
+
 //Establishin the connection bewtween HomeScreen.js
 import { HomeScreen } from './components/HomeScreen'
 import { TimerScreen } from './components/TimerScreen'
