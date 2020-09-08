@@ -7,20 +7,22 @@ import { createStackNavigator } from '@react-navigation/stack';
 //Import Firebase config here
 import { firebaseConfig } from './config/firebase'
 //Import Firebase library after installing fire base via expo
-import * as firebase from 'firebase'
-// Initialise firebase
-if ( !firebase.app.length){
-firebase.initializeApp( firebaseConfig)
-}
+// import * as firebase from 'firebase'
+// // Initialise firebase
+// if ( !firebase.app.length){
+// firebase.initializeApp( firebaseConfig)
+// }
 
-//Establishin the connection bewtween HomeScreen.js
+//Establish connection bewtween screens
 import { HomeScreen } from './components/HomeScreen'
 import { TimerScreen } from './components/TimerScreen'
+import { AuthScreen } from './components/AuthScreen'
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name = "Signup" component={AuthScreen} />
     {/* <Stack.Screen name = "Home" component = {HomeScreen} /> */}
         <Stack.Screen name = "Home">
           {/* Passing object via props */}
