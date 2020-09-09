@@ -23,9 +23,12 @@ import { AuthScreen } from './components/AuthScreen'
 export default function App() {
 
     //Pass email and password to firebase. Use catch to throw an exception
-    const signup = (email, password) => {
-      firebase.auth().createUserWithEmailAndPassword(email,password)
-      .catch(error => console.log(error) )
+    //Add another parameter 'intent'
+    const signup = (intent, email, password) => {
+      if( intent == 'signup' ){
+        firebase.auth().createUserWithEmailAndPassword(email,password)
+        .catch(error => console.log(error) )
+      }
     }
     //Check if user is logged in or not 
     firebase.auth().onAuthStateChanged( (user) => {
