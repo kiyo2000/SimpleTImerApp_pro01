@@ -23,13 +23,18 @@ import { AuthScreen } from './components/AuthScreen'
 export default function App() {
 
     //Pass email and password to firebase. Use catch to throw an exception
-    //Add another parameter 'intent'
+    //Add another parameter 'intent' to check if the user credentials already exist or not. 
     const signup = (intent, email, password) => {
       if( intent == 'signup' ){
         firebase.auth().createUserWithEmailAndPassword(email,password)
         .catch(error => console.log(error) )
       }
+      else if ( intent == 'login'){
+        firebase.auth().signInWithEmailAndPassword( email, password )
+        .catch( error => console.log(error) )
+      }
     }
+
     //Check if user is logged in or not 
     firebase.auth().onAuthStateChanged( (user) => {
       if( user ) {

@@ -56,7 +56,7 @@ export const AuthScreen = ( props ) => {
                     style={ !validEmail || !validPassword ?  styles.buttonDisabled : styles.button }
                     // disable the button function by seting useState false.
                     disabled={ !validEmail || !validPassword ? true : false }
-                    onPress ={ () => { props.signup(email,password) } }
+                    onPress ={ () => { props.signup( 'signup', email, password) } }
                 >
                     <Text style={styles.buttonText}>- SIGNUP -</Text>
                 </TouchableOpacity>
@@ -78,13 +78,21 @@ export const AuthScreen = ( props ) => {
         // Sign in view
             <View style={styles.container}>
                 <Text style={styles.title}>- SIGNIN -</Text>
-                <TextInput style={styles.input} placeholder="you@email.com"  />
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="you@email.com"  
+                    onChangeText={ (email) => { setEmail(email) }  } //update email
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="your password"
                     secureTextEntry={true} 
+                    onChangeText= { (password) =>{setPassword(password)} } //update password
                 />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={ () => { props.signup( 'login', email, password  ) } }
+                >
                     <Text style={styles.buttonText}>- SIGNIN -</Text>
                 </TouchableOpacity>
                     <Text style={styles.altText}>Don't have an account?</Text>
