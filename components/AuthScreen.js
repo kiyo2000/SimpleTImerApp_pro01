@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Button } from 'react-native'
 import { useNavigatinon, useNavigation } from '@react-navigation/native'
 
@@ -14,6 +14,13 @@ export const AuthScreen = ( props ) => {
     
     // access the property of useNavigation
     const navigation = useNavigation()
+
+    //a lifecycle function. Mount a component via props
+    useEffect(() =>{
+        if( props.loggedIn ){
+            navigation.reset()//navigation.navigate("Home")
+        }
+    })
 
     // validate email & password
     const validateEmail = (email) => {
