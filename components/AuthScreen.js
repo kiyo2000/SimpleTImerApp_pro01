@@ -15,7 +15,8 @@ export const AuthScreen = ( props ) => {
     // access the property of useNavigation
     const navigation = useNavigation()
 
-    //a lifecycle function. Mount a component via props
+    //useEffect():a lifecycle function.Mount a component via props. 
+    //reset() wipes the whole naviagation state and replaces it with the result of several actions.  
     useEffect(() =>{
         if( props.loggedIn ){
             navigation.navigate("Home")//navigation.navigate("Home")
