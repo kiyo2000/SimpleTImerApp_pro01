@@ -69,8 +69,10 @@ export default function App() {
            // headerTitle: "HOME",
             headerRight: () => (
               <TouchableOpacity onPress={() => {
-                firebase.auth().signOut()
-                navigation.reset({ index: 0, routes: [{name: "Signup"}] })
+                firebase.auth().signOut().then(() => {
+                  setAuth(false)
+                  navigation.reset({ index: 0, routes: [{name: "Signup"}] })
+                })
               }}>
                   <Text> SIGNOUT </Text>
               </TouchableOpacity>
