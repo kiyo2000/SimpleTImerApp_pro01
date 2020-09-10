@@ -4,11 +4,11 @@ import { SafeAreaView, StyleSheet, Text, View  } from 'react-native';
 
 export const TimerScreen = (props) => {
     return (
-        <SafeAreaView>
+        
             <View style={styles.viewTitle}>
                 <Text style={styles.title}> - Timer Page - </Text>
             </View>
-        </SafeAreaView>
+        
     )
 }
 
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
 
     title: {
       textAlign: 'center',
-      fontWeight: 'bold',
+      fontWeight: 'bold', 
+      paddingVertical: 5,
     },
   });
