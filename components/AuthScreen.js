@@ -18,7 +18,7 @@ export const AuthScreen = ( props ) => {
     //a lifecycle function. Mount a component via props
     useEffect(() =>{
         if( props.loggedIn ){
-            navigation.reset()//navigation.navigate("Home")
+            navigation.navigate("Home")//navigation.navigate("Home")
         }
     })
 
