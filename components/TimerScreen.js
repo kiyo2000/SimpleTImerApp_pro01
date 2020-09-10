@@ -2,20 +2,36 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
 
+const startButton = () => {
+    return(
+        <TouchableOpacity
+        style={styles.startButton}
+        onPress={() => { 
+            console.log('button pressed!')
+        }}>
+        <Text style={styles.startButtonText}>START</Text>
+    </TouchableOpacity>
+    );
+}
+
 export const TimerScreen = (props) => {
+
+
     return (
         <View style={styles.mainView}>
             <View style={styles.viewTitle}>
                 <Text style={styles.titleText}>Let's Start!</Text>
             </View>
+
             <View style={styles.viewButton}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     style={styles.startButton}
                     onPress={() => { 
                         console.log('button pressed!')
                     }}>
                     <Text style={styles.startButtonText}>START</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+               {startButton()}
             </View>
         </View>
     )
@@ -32,26 +48,26 @@ const styles = StyleSheet.create({
     },
 
     titleText: {
-        paddingTop: 50,
+        paddingTop: 30,
         textAlign: 'center',
         fontSize: 50,
-        color: '#f59842',
+        color: '#03fca5',
         fontWeight: 'bold',
     },
 
     viewButton:{
         flex: 2,
         //backgroundColor: '#03f765',
-        justifyContent: 'center',
+        //justifyContent: 'center',
     },
 
     startButton:{
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#03fca5',
-        height: 300,
-        width: 300,
-        borderRadius: 150, 
+        backgroundColor: '#f59842',
+        height: 260,
+        width: 260,
+        borderRadius: 130, 
     },
 
 
