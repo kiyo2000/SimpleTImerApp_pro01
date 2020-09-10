@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -19,8 +19,12 @@ firebase.initializeApp( firebaseConfig )
 import { HomeScreen } from './components/HomeScreen'
 import { TimerScreen } from './components/TimerScreen'
 import { AuthScreen } from './components/AuthScreen'
+//import { useState } from 'react'; // Commented out because a new useState has been added to line 2.
 
 export default function App() {
+
+  //Indicate user logged in or not by changing the useSate depending on uer logged in or not
+  const [auth,setAuth] = useState(false)
 
     //Pass email and password to firebase. Use catch to throw an exception
     //Add another parameter 'intent' to check if the user credentials already exist or not. 
@@ -35,12 +39,16 @@ export default function App() {
       }
     }
 
+    //Create a call back function
+
     //Check if user is logged in or not 
     firebase.auth().onAuthStateChanged( (user) => {
       if( user ) {
+        setAuth(true)
         console.log('user logged in')
       }
       else {
+        setAuth(false)
         console.log('user not logged in')
       }
     } )
@@ -50,9 +58,8 @@ export default function App() {
       <Stack.Navigator>
     {/* <Stack.Screen name = "Signup" component={AuthScreen} /> */}
     <Stack.Screen name = "Signup" >
-      { (props) => <AuthScreen {...props} signup={ signup } />}
+      { (props) => <AuthScreen {...props} signup={ signup } loggedIn={auth} />}
     </Stack.Screen>
-    
     {/* <Stack.Screen name = "Home" component = {HomeScreen} /> */}
         <Stack.Screen name = "Home">
           {/* Passing object via props */}
