@@ -19,7 +19,11 @@ export const AuthScreen = ( props ) => {
     //reset() wipes the whole naviagation state and replaces it with the result of several actions.  
     useEffect(() =>{
         if( props.loggedIn ){
-            navigation.navigate("Home")//navigation.navigate("Home")
+            //Replaced with navigation.navigate("Home") // 0 is the top on the naviation tree
+            navigation.reset({
+                index: 0,
+                routes: [{ name: "Home" }]
+            })
         }
     })
 

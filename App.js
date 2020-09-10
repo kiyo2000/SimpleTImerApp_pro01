@@ -19,6 +19,7 @@ firebase.initializeApp( firebaseConfig )
 import { HomeScreen } from './components/HomeScreen'
 import { TimerScreen } from './components/TimerScreen'
 import { AuthScreen } from './components/AuthScreen'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 //import { useState } from 'react'; // Commented out because a new useState has been added to line 2.
 
 export default function App() {
@@ -60,8 +61,19 @@ export default function App() {
     <Stack.Screen name = "Signup" >
       { (props) => <AuthScreen {...props} signup={ signup } loggedIn={auth} />}
     </Stack.Screen>
-    {/* <Stack.Screen name = "Home" component = {HomeScreen} /> */}
-        <Stack.Screen name = "Home">
+    {/* Prviously <Stack.Screen name = "Home" component = {HomeScreen} /> */}
+    {/* Adding sign out function */}
+        <Stack.Screen 
+          name = "Home"
+          options={({navigation,route}) => ({
+            headerTitle: "Expenses",
+            headerRight: () => (
+              <TouchableOpacity>
+                  <Text> SINGOUT</Text>
+              </TouchableOpacity>
+            )
+          })}
+        >
           {/* Passing object via props */}
           { (props) => <HomeScreen  {...props} text="- Welcome Home Screen -" /> } 
         </Stack.Screen>
