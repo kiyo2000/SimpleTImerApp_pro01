@@ -1,6 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View  } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
 
 export const TimerScreen = (props) => {
@@ -10,8 +9,11 @@ export const TimerScreen = (props) => {
                 <Text> - Timer Page - </Text>
             </View>
             <View style={styles.viewButton}>
-                <TouchableOpacity>
-                    <Text> - Press Button - </Text>
+                <TouchableOpacity 
+                    onPress={() => { 
+                        console.log('button pressed!')
+                    }}>
+                    <Text>START</Text>
                 </TouchableOpacity>
             </View>
         </View>
