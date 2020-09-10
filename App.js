@@ -62,14 +62,14 @@ export default function App() {
       { (props) => <AuthScreen {...props} signup={ signup } loggedIn={auth} />}
     </Stack.Screen>
     {/* Prviously <Stack.Screen name = "Home" component = {HomeScreen} /> */}
-    {/* Adding sign out function */}
+    {/* Adding sign out function on navigation */}
         <Stack.Screen 
           name = "Home"
           options={({navigation,route}) => ({
-            headerTitle: "Expenses",
+           // headerTitle: "HOME",
             headerRight: () => (
               <TouchableOpacity>
-                  <Text> SINGOUT</Text>
+                  <Text> SIGNOUT </Text>
               </TouchableOpacity>
             )
           })}
