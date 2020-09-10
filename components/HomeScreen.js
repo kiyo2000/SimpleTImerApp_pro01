@@ -9,7 +9,7 @@ export const HomeScreen = (props) => {
     return (
         <View>
             <Text style={styles.title}> {props.text} </Text>
-            <Button title="Use Timer" onPress = { () => {navigation.navigate("Timer")}} />
+            <Button title="use timer ? " onPress = { () => {navigation.navigate("Timer")}} />
         </View>
     );
 }
@@ -17,6 +17,7 @@ export const HomeScreen = (props) => {
 const styles = StyleSheet.create({
     title: {
       textAlign: 'center',
+      fontSize: 20,
       fontWeight: 'bold',
     },
   });
