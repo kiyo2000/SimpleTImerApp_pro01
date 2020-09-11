@@ -1,13 +1,16 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
-// Show start button. Passing as a function
+// Show start button.It starts the interval timer method setInterval() once it's pressed.
 const startButton = () => {
     return(
         <TouchableOpacity
             style={styles.startButton}
             onPress={() => { 
-                console.log('button pressed!')
+                console.log('Start button pressed!')
+                setInterval( () =>{
+                    console.log('This will run every second!');
+                }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
     </TouchableOpacity>
