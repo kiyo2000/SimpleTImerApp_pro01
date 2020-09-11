@@ -7,9 +7,9 @@ const startButton = () => {
         <TouchableOpacity
             style={styles.startButton}
             onPress={() => { 
-                console.log('Start button pressed!')
+                console.log('Start button pressed')//for debugging
                 setInterval( () =>{
-                    console.log('This will run every second!');
+                    console.log('setInterval() is working');//for debugging
                 }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
@@ -22,7 +22,7 @@ const runTimerButton = () =>{
         <TouchableOpacity
             style={styles.startButton}
             onPress={() => { 
-                console.log('button pressed!')
+                console.log('button pressed')
             }}>
         <Text style={styles.startButtonText}>00:00:00</Text>
     </TouchableOpacity>
@@ -31,7 +31,9 @@ const runTimerButton = () =>{
 
 //Page for the timer 
 export const TimerScreen = (props) => {
-
+    state = {
+        time: 0,
+    }
 
     return (
         <View style={styles.mainView}>
