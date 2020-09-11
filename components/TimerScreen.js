@@ -1,19 +1,32 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
-
+// Show start button. Passing as a function
 const startButton = () => {
     return(
         <TouchableOpacity
-        style={styles.startButton}
-        onPress={() => { 
-            console.log('button pressed!')
-        }}>
+            style={styles.startButton}
+            onPress={() => { 
+                console.log('button pressed!')
+            }}>
         <Text style={styles.startButtonText}>START</Text>
     </TouchableOpacity>
     );
 }
 
+const runTimerButton = () =>{
+    return(
+        <TouchableOpacity
+            style={styles.startButton}
+            onPress={() => { 
+                console.log('button pressed!')
+            }}>
+        <Text style={styles.startButtonText}>00:00:00</Text>
+    </TouchableOpacity>
+    );
+}
+
+//Page for the timer 
 export const TimerScreen = (props) => {
 
 
@@ -24,13 +37,6 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-                {/* <TouchableOpacity
-                    style={styles.startButton}
-                    onPress={() => { 
-                        console.log('button pressed!')
-                    }}>
-                    <Text style={styles.startButtonText}>START</Text>
-                </TouchableOpacity> */}
                {startButton()}
             </View>
         </View>
