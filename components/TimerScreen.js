@@ -10,6 +10,7 @@ const startButton = () => {
                 console.log('Start button pressed')//for debugging
                 setInterval( () =>{
                     console.log('setInterval() is working');//for debugging
+                    this.setState({ time: this.state.time + 1000, });
                 }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
