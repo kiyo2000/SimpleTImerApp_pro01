@@ -11,6 +11,7 @@ startButton = () => {
                 console.log('Start button pressed')//for debugging
                 setInterval( () =>{
                     console.log('setInterval() is working')//for debugging
+                   // this.setState({ time: 0 + 1000,
                     this.setState({ time: 0 + 1000,
                     });
                 }, 1000);
