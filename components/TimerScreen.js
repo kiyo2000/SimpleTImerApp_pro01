@@ -1,16 +1,20 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
+
+const state = 0;
+
 // Show start button.It starts the interval timer method setInterval() once it's pressed.
-const startButton = () => {
+startButton = () => {
     return(
         <TouchableOpacity
             style={styles.startButton}
             onPress={() => { 
                 console.log('Start button pressed')//for debugging
                 setInterval( () =>{
-                    console.log('setInterval() is working');//for debugging
-                    this.setState({ time: this.state.time + 1000, });
+                    console.log('setInterval() is working')//for debugging
+                   // this.setState({ time: 0 + 1000,
+                    state + 1000
                 }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
@@ -18,6 +22,7 @@ const startButton = () => {
     );
 }
 
+//Not sure if this works or not.
 const runTimerButton = () =>{
     return(
         <TouchableOpacity
@@ -32,9 +37,10 @@ const runTimerButton = () =>{
 
 //Page for the timer 
 export const TimerScreen = (props) => {
-    state = {
-        time: 0,
-    }
+    
+    // state = {
+    //     time: 0,
+    // }
 
     return (
         <View style={styles.mainView}>
