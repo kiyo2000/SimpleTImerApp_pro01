@@ -1,9 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
-//experimenting
-const IntervalExample = () => {
-    const [seconds, setSeconds] = useState(0);
 
 // Show start button.It starts the interval timer method setInterval() once it's pressed.
 startButton = () => {
@@ -13,11 +10,10 @@ startButton = () => {
             onPress={() => { 
                 console.log('Start button pressed')//for debugging
                 setInterval( () =>{
-                    //console.log('setInterval() is working')//for debugging
+                    console.log('setInterval() is working');//for debugging
                    // this.setState({ time: 0 + 1000,
-                    //this.setState({ time: this.state.time + 1000 } ); }, 1000);
-                    setSeconds(seconds => seconds + 1000);
-                    }, 1000);
+                    this.setState({ time: this.state.time + 1000 } );
+                }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
     </TouchableOpacity>
@@ -40,6 +36,7 @@ const runTimerButton = () =>{
 //Page for the timer 
 export const TimerScreen = (props) => {
     
+    //using state. Probably this's not the way to use state...
     state = {
         time: 0,
     }
@@ -51,7 +48,7 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-               {seconds}
+               {startButton()}
             </View>
         </View>
     )
