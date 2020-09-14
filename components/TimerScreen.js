@@ -12,9 +12,7 @@ startButton = () => {
                 setInterval( () =>{
                     console.log('setInterval() is working')//for debugging
                    // this.setState({ time: 0 + 1000,
-                    this.setState({ time: 0 + 1000,
-                    });
-                }, 1000);
+                    this.setState({ time: 0 + 1000, } ) }, 1000)
             }}>
         <Text style={styles.startButtonText}>START</Text>
     </TouchableOpacity>
