@@ -12,7 +12,7 @@ startButton = () => {
                 setInterval( () =>{
                     console.log('setInterval() is working');//for debugging
                    // this.setState({ time: 0 + 1000,
-                    this.setState({ time: this.state.time + 1000 } );
+                    this.setState({ time: this.state.time + 1000 } ); // How should I use state to load a initial value of 0???
                 }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
@@ -21,22 +21,22 @@ startButton = () => {
 }
 
 //Not sure if this works or not.
-const runTimerButton = () =>{
-    return(
-        <TouchableOpacity
-            style={styles.startButton}
-            onPress={() => { 
-                console.log('button pressed')
-            }}>
-        <Text style={styles.startButtonText}>00:00:00</Text>
-    </TouchableOpacity>
-    );
-}
+// const runTimerButton = () =>{
+//     return(
+//         <TouchableOpacity
+//             style={styles.startButton}
+//             onPress={() => { 
+//                 console.log('button pressed')
+//             }}>
+//         <Text style={styles.startButtonText}>00:00:00</Text>
+//     </TouchableOpacity>
+//     );
+// }
 
 //Page for the timer 
 export const TimerScreen = (props) => {
     
-    //using state. Probably this's not the way to use state...
+    //using state. Probably this's not the way to use state for setting a initla value of 0...
     state = {
         time: 0,
     }
