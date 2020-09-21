@@ -37,11 +37,11 @@ import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-n
 //Page for the timer 
 export const TimerScreen = (props) => {
 
-    //set the state time to 0 with using useState
-    //How can I call this hook from a function outside via the function inside?? 
+    //Set the state time to 0 with using useState
     const [ time, setTime ] = useState( 0 )
+    const [ pause, pauseTime ] = useState( false )
 
-    //Start timer
+    //Display start button text and start timer
     const startButton = () => {
         return(
             <TouchableOpacity
@@ -65,6 +65,12 @@ export const TimerScreen = (props) => {
                 style={styles.startButton}
                 onPress={() => { 
                     console.log('Start button pressed')//for debugging
+                    //const {paused} = time; // paused = false
+                    setState({
+                        paused: !paused, // !paused = !false = true 
+                    });
+                    // paused -> true ???
+                    console.log('paused', {paused} );
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
@@ -74,20 +80,19 @@ export const TimerScreen = (props) => {
 
     //Display title text and start button
     return (
+        
         <View style={styles.mainView}>
             <View style={styles.viewTitle}>
                 <Text style={styles.titleText}>Let's Start!</Text>
             </View>
 
             <View style={styles.viewButton}>
+                {/* Show the running timer if the value of time is greater than 0 */}
                 {time > 0 ? timerRunning() : startButton() }
-               {/* if(something) {
-                   do_something
-               } else {
-                   do_something_else
-               } */}
-               {/* {startButton()}
-               <Text>Counter: {time}</Text> */}            
+               {/* Below lines are old reference for learnig: 
+               {startButton()}
+               <Text>Counter: {time}</Text> 
+               */}            
             </View>
         </View>
     )
@@ -114,8 +119,8 @@ const styles = StyleSheet.create({
 
     viewButton:{
         flex: 2,
-        //backgroundColor: '#03f765',
         //justifyContent: 'center',
+        //backgroundColor: '#03f765',
     },
 
     startButton:{
