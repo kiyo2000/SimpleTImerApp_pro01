@@ -37,11 +37,8 @@ export const TimerScreen = (props) => {
                 style={styles.startButton}
                 onPress={() => { 
                     console.log('button pressed')//for debugging
-                    //pauseTime( false ); // paused = false
-                    pauseTime( true ); //  paused = true 
-                    // setState({
-                    //     paused: !paused, // !paused = !false = true 
-                    // });
+                    //below is wrong
+                    pauseTime( { paused: !paused }); //  paused = true 
                     console.log('the value of paused is: ', paused ); //for debugging
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
