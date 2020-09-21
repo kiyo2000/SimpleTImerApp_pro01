@@ -69,9 +69,7 @@ export const TimerScreen = (props) => {
                 onPress={() => { 
                     console.log('Start button pressed')//for debugging
                     //const {paused} = time; // paused = false
-                    pauseTime(
-                        paused = true // !paused = !false = true 
-                    );
+                    pauseTime( true ); // !paused = !false = true 
                     // setState({
                     //     paused: !paused, // !paused = !false = true 
                     // });
