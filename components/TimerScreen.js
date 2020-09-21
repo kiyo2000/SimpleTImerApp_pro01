@@ -41,7 +41,7 @@ export const TimerScreen = (props) => {
     //How can I call this hook from a function outside via the function inside?? 
     const [ time, setTime ] = useState( 0 )
 
-    //Display 
+    //Start timer
     const startButton = () => {
         return(
             <TouchableOpacity
@@ -58,7 +58,7 @@ export const TimerScreen = (props) => {
             </TouchableOpacity>
         );
     }
-
+    // Display running timmer
     const timerRunning = () => {
         return(
             <TouchableOpacity
@@ -66,15 +66,10 @@ export const TimerScreen = (props) => {
                 onPress={() => { 
                     console.log('Start button pressed')//for debugging
                 }}>
-                    <Text style={styles.startButtonText}>00:00:00</Text>
+                    <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
         );
     }
-
-
-
-
-
 
 
     //Display title text and start button
@@ -85,11 +80,14 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-               
-               {startButton()}
-               <Text>Counter: {time}</Text>
-               
-               
+                {time > 0 ? timerRunning() : startButton() }
+               {/* if(something) {
+                   do_something
+               } else {
+                   do_something_else
+               } */}
+               {/* {startButton()}
+               <Text>Counter: {time}</Text> */}            
             </View>
         </View>
     )
