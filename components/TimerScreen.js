@@ -67,9 +67,9 @@ export const TimerScreen = (props) => {
             <TouchableOpacity
                 style={styles.startButton}
                 onPress={() => { 
-                    console.log('Start button pressed')//for debugging
+                    console.log('button pressed')//for debugging
                     //const {paused} = time; // paused = false
-                    pauseTime( true ); // !paused = !false = true 
+                    pauseTime( false ); // !paused = !false = true 
                     // setState({
                     //     paused: !paused, // !paused = !false = true 
                     // });
