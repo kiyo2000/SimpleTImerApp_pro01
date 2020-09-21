@@ -48,10 +48,10 @@ export const TimerScreen = (props) => {
                 style={styles.startButton}
                 onPress={() => { 
                     console.log('Start button pressed')//for debugging
-                    setInterval( () =>{
+                    setInterval( () => {
                         //Still not correct...
                         //Supposed to be display a value 0 and start counting up every thousand second.
-                        setTime(time + 1000); // Still not correct...
+                        setTime(time => time + 1000); // Still not correct...
 
                         console.log('setInterval() is working');//for debugging
                     }, 1000);
@@ -69,7 +69,8 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-               {startButton() }
+                {time}
+               {startButton()}
                
             </View>
         </View>
