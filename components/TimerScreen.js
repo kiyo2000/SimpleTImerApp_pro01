@@ -11,8 +11,7 @@ startButton = () => {
                 console.log('Start button pressed')//for debugging
                 setInterval( () =>{
                     console.log('setInterval() is working');//for debugging
-                   // this.setState({ time: 0 + 1000,
-                    this.setState({ time: this.state.time + 1000 } ); // How should I use state to load a initial value of 0???
+                    setTime(time + 1000); 
                 }, 1000);
             }}>
         <Text style={styles.startButtonText}>START</Text>
@@ -35,11 +34,11 @@ startButton = () => {
 
 //Page for the timer 
 export const TimerScreen = (props) => {
-    
-    //using state. Probably this's not the way to use state for setting a initla value of 0...
-    state = {
-        time: 0,
-    }
+
+    //set the state time to 0 with using useState
+    //How can I call this hook from a function outside via the function inside?? 
+    const [ time, setTime ] = useState( 0 )
+
 
     return (
         <View style={styles.mainView}>
@@ -48,7 +47,8 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-               {startButton()}
+               {startButton( () => setTime(time) ) }
+               
             </View>
         </View>
     )
