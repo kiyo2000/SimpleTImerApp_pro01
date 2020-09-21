@@ -69,8 +69,10 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-                {time}
+               
                {startButton()}
+               <Text>Counter: {time}</Text>
+               
                
             </View>
         </View>
