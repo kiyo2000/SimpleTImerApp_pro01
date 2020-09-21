@@ -70,12 +70,11 @@ export const TimerScreen = (props) => {
                     console.log('Start button pressed')//for debugging
                     //const {paused} = time; // paused = false
                     pauseTime(
-                        !paused // !paused = !false = true 
+                        paused = true // !paused = !false = true 
                     );
                     // setState({
                     //     paused: !paused, // !paused = !false = true 
                     // });
-                    // paused -> true ???
                     console.log('paused', paused ); //for debugging
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
