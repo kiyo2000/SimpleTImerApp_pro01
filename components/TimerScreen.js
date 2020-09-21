@@ -2,43 +2,12 @@
 import React, {useState} from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
-
-
-// Show start button.It starts the interval timer method setInterval() once it's pressed.
-// startButton = () => {
-//     return(
-//         <TouchableOpacity
-//             style={styles.startButton}
-//             onPress={() => { 
-//                 console.log('Start button pressed')//for debugging
-//                 setInterval( () =>{
-//                     console.log('setInterval() is working');//for debugging
-//                     setTime(time + 1000); 
-//                 }, 1000);
-//             }}>
-//         <Text style={styles.startButtonText}>START</Text>
-//     </TouchableOpacity>
-//     );
-// }
-
-//Not sure if this works or not.
-// const runTimerButton = () =>{
-//     return(
-//         <TouchableOpacity
-//             style={styles.startButton}
-//             onPress={() => { 
-//                 console.log('button pressed')
-//             }}>
-//         <Text style={styles.startButtonText}>00:00:00</Text>
-//     </TouchableOpacity>
-//     );
-// }
-
 //Page for the timer 
 export const TimerScreen = (props) => {
 
-    //Set the state time to 0 with using useState
+    //Set the initial time to 0 with using useState
     const [ time, setTime ] = useState( 0 )
+    //For pausing timer
     const [ paused, pauseTime ] = useState( false )
 
     //Display start button text and start timer
@@ -68,12 +37,12 @@ export const TimerScreen = (props) => {
                 style={styles.startButton}
                 onPress={() => { 
                     console.log('button pressed')//for debugging
-                    //const {paused} = time; // paused = false
-                    pauseTime( false ); // !paused = !false = true 
+                    //pauseTime( false ); // paused = false
+                    pauseTime( true ); //  paused = true 
                     // setState({
                     //     paused: !paused, // !paused = !false = true 
                     // });
-                    console.log('paused', paused ); //for debugging
+                    console.log('the value of paused is: ', paused ); //for debugging
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
