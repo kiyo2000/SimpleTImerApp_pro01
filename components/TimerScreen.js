@@ -39,7 +39,7 @@ export const TimerScreen = (props) => {
 
     //Set the state time to 0 with using useState
     const [ time, setTime ] = useState( 0 )
-    const [ pause, pauseTime ] = useState( false )
+    const [ paused, pauseTime ] = useState( false )
 
     //Display start button text and start timer
     const startButton = () => {
@@ -49,9 +49,12 @@ export const TimerScreen = (props) => {
                 onPress={() => { 
                     //console.log('Start button pressed')//for debugging
                     setInterval( () => {
-                        //Display a value 0 and start counting up every thousand second.
+                        if(!paused){
+                            //Display a value 0 and start counting up every thousand second.
                         setTime(time => time + 1000); 
                         console.log('setInterval() is working');//for debugging
+                        }
+                        
                     }, 1000);
                 }}>
                     <Text style={styles.startButtonText}>START</Text>
@@ -66,14 +69,14 @@ export const TimerScreen = (props) => {
                 onPress={() => { 
                     console.log('Start button pressed')//for debugging
                     //const {paused} = time; // paused = false
-                    pauseTime({
-                        pause: !paused,
-                    });
+                    pauseTime(
+                        !paused // !paused = !false = true 
+                    );
                     // setState({
                     //     paused: !paused, // !paused = !false = true 
                     // });
                     // paused -> true ???
-                    console.log('paused', {paused} );
+                    console.log('paused', paused ); //for debugging
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
