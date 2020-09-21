@@ -49,11 +49,11 @@ export const TimerScreen = (props) => {
                 onPress={() => { 
                     console.log('Start button pressed')//for debugging
                     setInterval( () =>{
-                        console.log('setInterval() is working');//for debugging
-
                         //Still not correct...
                         //Supposed to be display a value 0 and start counting up every thousand second.
                         setTime(time + 1000); // Still not correct...
+
+                        console.log('setInterval() is working');//for debugging
                     }, 1000);
                 }}>
                     <Text style={styles.startButtonText}>START</Text>
