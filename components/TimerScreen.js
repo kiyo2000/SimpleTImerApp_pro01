@@ -1,23 +1,25 @@
-import React from 'react'
+//import React from 'react'
+import React, {useState} from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
 
+
 // Show start button.It starts the interval timer method setInterval() once it's pressed.
-startButton = () => {
-    return(
-        <TouchableOpacity
-            style={styles.startButton}
-            onPress={() => { 
-                console.log('Start button pressed')//for debugging
-                setInterval( () =>{
-                    console.log('setInterval() is working');//for debugging
-                    setTime(time + 1000); 
-                }, 1000);
-            }}>
-        <Text style={styles.startButtonText}>START</Text>
-    </TouchableOpacity>
-    );
-}
+// startButton = () => {
+//     return(
+//         <TouchableOpacity
+//             style={styles.startButton}
+//             onPress={() => { 
+//                 console.log('Start button pressed')//for debugging
+//                 setInterval( () =>{
+//                     console.log('setInterval() is working');//for debugging
+//                     setTime(time + 1000); 
+//                 }, 1000);
+//             }}>
+//         <Text style={styles.startButtonText}>START</Text>
+//     </TouchableOpacity>
+//     );
+// }
 
 //Not sure if this works or not.
 // const runTimerButton = () =>{
@@ -39,7 +41,27 @@ export const TimerScreen = (props) => {
     //How can I call this hook from a function outside via the function inside?? 
     const [ time, setTime ] = useState( 0 )
 
+    //Display 
+    const startButton = () => {
+        return(
+            <TouchableOpacity
+                style={styles.startButton}
+                onPress={() => { 
+                    console.log('Start button pressed')//for debugging
+                    setInterval( () =>{
+                        console.log('setInterval() is working');//for debugging
 
+                        //Still not correct...
+                        //Supposed to be display a value 0 and start counting up every thousand second.
+                        setTime(time + 1000); // Still not correct...
+                    }, 1000);
+                }}>
+                    <Text style={styles.startButtonText}>START</Text>
+            </TouchableOpacity>
+        );
+    }
+
+    //Display title text and start button
     return (
         <View style={styles.mainView}>
             <View style={styles.viewTitle}>
@@ -47,13 +69,14 @@ export const TimerScreen = (props) => {
             </View>
 
             <View style={styles.viewButton}>
-               {startButton( () => setTime(time) ) }
+               {startButton() }
                
             </View>
         </View>
     )
 }
 
+//******* CSS ***********
 const styles = StyleSheet.create({
     mainView:{
         alignItems: 'center',
