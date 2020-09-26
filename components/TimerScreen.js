@@ -1,5 +1,5 @@
 //import React from 'react'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
 
 //Page for the timer 
@@ -9,6 +9,11 @@ export const TimerScreen = (props) => {
     const [ time, setTime ] = useState( 0 )
     //For pausing timer
     const [ paused, pauseTime ] = useState( false )
+
+
+    //Messed up some codes now the program won't work at all.
+    // global reference for timer
+    //let timer = null
 
     //Display start button text and start timer
     const startButton = () => {
