@@ -7,7 +7,7 @@ export const TimerScreen = (props) => {
 
     //Set the initial time to 0 with using useState
     const [ time, setTime ] = useState( 0 )
-    //For pausing timer
+    //Pause timer
     const [ paused, pauseTime ] = useState( false )
 
 
@@ -48,11 +48,10 @@ export const TimerScreen = (props) => {
                 style={styles.startButton}
                 onPress={() => { 
                     console.log('button pressed')//for debugging
-                    //Below code won't stop the timer
-                    //pauseTime( { paused: !paused, }); //  paused = true 
-                    pauseTime (true)
+                    //Below code still won't stop the timer
+                    pauseTime( { paused: !paused, }); //  paused = true 
                     console.log('the value of paused is: ', paused ); //for debugging
-                    //return () => clearInterval(timer)
+                    return () => clearInterval(timer)
                      
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
