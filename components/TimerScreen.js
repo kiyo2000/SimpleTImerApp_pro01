@@ -21,16 +21,22 @@ export const TimerScreen = (props) => {
             <TouchableOpacity
                 style={styles.startButton}
                 onPress={() => { 
-                    //console.log('Start button pressed')//for debugging
-                    setInterval( () => {
-                        if(!paused){
-                            //Display a value 0 and start counting up every thousand second.
-                        setTime(time => time + 1000); 
-                        console.log('setInterval() is working');//for debugging
-                        }
+
+                    timer = setInterval(() => {
+                        setTime(time => time + 1);
+                      }, 1000)
+                      return () => clearInterval(timer)
+                    }
+                    // //console.log('Start button pressed')//for debugging
+                    // setInterval( () => {
+                    //     if(!paused){
+                    //         //Display a value 0 and start counting up every thousand second.
+                    //     setTime(time => time + 1000); 
+                    //     console.log('setInterval() is working');//for debugging
+                    //     }
                         
-                    }, 1000);
-                }}>
+                    // }, 1000);
+                }>
                     <Text style={styles.startButtonText}>START</Text>
             </TouchableOpacity>
         );
