@@ -9,9 +9,6 @@ export const TimerScreen = (props) => {
     const [ time, setTime ] = useState( 0 )
     //Pause timer
     const [ paused, pauseTime ] = useState( false )
-
-
-    //Messed up some codes now the program won't work at all.
     // global reference for timer
     let timer = null
 
@@ -21,22 +18,15 @@ export const TimerScreen = (props) => {
             <TouchableOpacity
                 style={styles.startButton}
                 onPress={() => { 
-                    if(!paused){
-                        timer = setInterval(() => {
-                            setTime(time => time + 1);
-                        }, 1000)
-                            return () => clearInterval(timer)
-                        }
-                    }
-                    // //console.log('Start button pressed')//for debugging
-                    // setInterval( () => {
-                    //     if(!paused){
-                    //         //Display a value 0 and start counting up every thousand second.
-                    //     setTime(time => time + 1000); 
-                    //     console.log('setInterval() is working');//for debugging
-                    //     }   
-                    // }, 1000);
-                }>
+                    //console.log('Start button pressed')//for debugging
+                    setInterval( () => {
+                        if(!paused){
+                        //Display a value 0 and start counting up every thousand second.
+                        setTime(time => time + 1000); 
+                        console.log('setInterval() is working');//for debugging
+                        }   
+                    }, 1000);
+                }}>
                     <Text style={styles.startButtonText}>START</Text>
             </TouchableOpacity>
         );
@@ -52,7 +42,6 @@ export const TimerScreen = (props) => {
                     pauseTime( { paused: !paused, }); //  paused = true 
                     console.log('the value of paused is: ', paused ); //for debugging
                     return () => clearInterval(timer)
-                     
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
@@ -69,11 +58,7 @@ export const TimerScreen = (props) => {
 
             <View style={styles.viewButton}>
                 {/* Show the running timer if the value of time is greater than 0 */}
-                {time > 0 ? timerRunning() : startButton() }
-               {/* Below lines are old reference for learnig: 
-               {startButton()}
-               <Text>Counter: {time}</Text> 
-               */}            
+                {time > 0 ? timerRunning() : startButton() }           
             </View>
         </View>
     )
