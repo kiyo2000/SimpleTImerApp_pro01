@@ -52,7 +52,6 @@ export const TimerScreen = (props) => {
         );
     }
 
-
     //Display title text and start button
     return (
         
