@@ -13,7 +13,7 @@ export const TimerScreen = (props) => {
 
     //Messed up some codes now the program won't work at all.
     // global reference for timer
-    //let timer = null
+    let timer = null
 
     //Display start button text and start timer
     const startButton = () => {
@@ -50,9 +50,10 @@ export const TimerScreen = (props) => {
                     console.log('button pressed')//for debugging
                     //Below code won't stop the timer
                     //pauseTime( { paused: !paused, }); //  paused = true 
-                    //pauseTime( true); // This is not working.
+                    pauseTime ( true)
                     console.log('the value of paused is: ', paused ); //for debugging
                     return () => clearInterval(timer)
+                     
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
