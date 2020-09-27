@@ -4,7 +4,77 @@ import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity  } from 'react-n
 
 //Page for the timer 
 export const TimerScreen = (props) => {
-
+    const [time, setTime] = useState(0)
+    const [paused, setPaused] = useState(true)
+  
+    // global reference for timer
+    let timer = null
+  
+    // useEffect( () => {
+    //   timer = setInterval( () => { setTime( time + 1 ) } , 1000)
+    // })
+  
+    useEffect(() => {
+      if (!paused) {
+        timer = setInterval(() => {
+          setTime(time => time + 1);
+        }, 1000)
+        return () => clearInterval(timer)
+      }
+    })
+  
+    return (
+      <View style={styles.container}>
+        <Text style={styles.time}>{time} seconds</Text>
+        <TouchableOpacity style={styles.button} onPress={() => {
+          setPaused(paused ? false : true)
+        }} >
+          <Text>{paused ? "Start" : "Stop"}</Text>
+        </TouchableOpacity>
+        <View style={styles.row}>
+          <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.save]}>
+            <Text style={styles.saveText}>Delete</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.save]}>
+            <Text style={styles.saveText}>Save</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    time: {
+      fontSize: 32,
+    },
+    button: {
+      marginTop: 20,
+      backgroundColor: 'yellow',
+      padding: 15,
+      minWidth: 100,
+    },
+    row: {
+      flexDirection: 'row',
+      position: 'absolute',
+      bottom: 15,
+      justifyContent: 'space-between',
+      padding: 10,
+      width: '100%',
+    },
+    save: {
+      backgroundColor: 'darkblue',
+      padding: 15,
+    },
+    saveText: {
+      color: 'white',
+    },
+});
 // /** 
 //  * Originial codes below -----------------------------------------------------------------------------------------
 // */
@@ -65,48 +135,53 @@ export const TimerScreen = (props) => {
 //             </View>
 //         </View>
 //     )
+//}
 //End of original code -------------------------------------------------------------------------------------------
-}
 
+
+/**
+ * Original CSS --------------------------------------------------------------------------------------------------
+ */
 //******* CSS ***********
-const styles = StyleSheet.create({
-    mainView:{
-        alignItems: 'center',
-        flex: 1,
-    },
+// const styles = StyleSheet.create({
+//     mainView:{
+//         alignItems: 'center',
+//         flex: 1,
+//     },
 
-    viewTitle:{
-        flex: 1,
-    },
+//     viewTitle:{
+//         flex: 1,
+//     },
 
-    titleText: {
-        paddingTop: 30,
-        textAlign: 'center',
-        fontSize: 50,
-        color: '#03fca5',
-        fontWeight: 'bold',
-    },
+//     titleText: {
+//         paddingTop: 30,
+//         textAlign: 'center',
+//         fontSize: 50,
+//         color: '#03fca5',
+//         fontWeight: 'bold',
+//     },
 
-    viewButton:{
-        flex: 2,
-        //justifyContent: 'center',
-        //backgroundColor: '#03f765',
-    },
+//     viewButton:{
+//         flex: 2,
+//         //justifyContent: 'center',
+//         //backgroundColor: '#03f765',
+//     },
 
-    startButton:{
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f59842',
-        height: 260,
-        width: 260,
-        borderRadius: 130, 
-    },
+//     startButton:{
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         backgroundColor: '#f59842',
+//         height: 260,
+//         width: 260,
+//         borderRadius: 130, 
+//     },
 
 
-    startButtonText:{
-        fontSize: 50,
-        color: '#ffffff',
-        fontWeight: 'bold',
-    },
+//     startButtonText:{
+//         fontSize: 50,
+//         color: '#ffffff',
+//         fontWeight: 'bold',
+//     },
 
-  });
+//   });
+  //End of original CSS ------------------------------------------------------------------------------------------
