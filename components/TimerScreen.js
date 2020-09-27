@@ -50,8 +50,9 @@ export const TimerScreen = (props) => {
                     console.log('button pressed')//for debugging
                     //Below code won't stop the timer
                     //pauseTime( { paused: !paused, }); //  paused = true 
-                    pauseTime( true); // This 
+                    //pauseTime( true); // This is not working.
                     console.log('the value of paused is: ', paused ); //for debugging
+                    return () => clearInterval(timer)
                 }}>
                     <Text style={styles.startButtonText}>{time}</Text>
             </TouchableOpacity>
