@@ -29,10 +29,11 @@ export const TimerScreen = (props) => {
         <TouchableOpacity style={styles.button} onPress={() => {
           setPaused(paused ? false : true)
         }} >
-          <Text>{paused ? "Start" : "Stop"}</Text>
+          {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
+          <Text style={styles.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
         </TouchableOpacity>
         <View style={styles.row}>
-          <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.save]}>
+          <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.delete]}>
             <Text style={styles.saveText}>Delete</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.save]}>
@@ -58,6 +59,11 @@ export const TimerScreen = (props) => {
       backgroundColor: 'yellow',
       padding: 15,
       minWidth: 100,
+      borderRadius: 50,
+    },
+    mainButtontext: {
+        fontSize: 20,
+        textAlign: "center",
     },
     row: {
       flexDirection: 'row',
@@ -67,12 +73,19 @@ export const TimerScreen = (props) => {
       padding: 10,
       width: '100%',
     },
+    delete: {
+        backgroundColor: 'red',
+        padding: 15,
+        borderRadius: 50,
+      },
     save: {
-      backgroundColor: 'darkblue',
+      backgroundColor: 'blue',
       padding: 15,
+      borderRadius: 50,
     },
     saveText: {
       color: 'white',
+      fontSize:15,
     },
 });
 // /** 
