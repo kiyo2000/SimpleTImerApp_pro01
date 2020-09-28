@@ -95,7 +95,7 @@ const Stack = createStackNavigator()
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   signout: {
     padding: 5,
     marginRight: 10,
-    backgroundColor: '#03fca5',
+    backgroundColor: 'red',
     borderRadius: 5,
   },
 
