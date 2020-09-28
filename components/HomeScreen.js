@@ -9,16 +9,14 @@ export const HomeScreen = (props) => {
     return (
         <View>
             <Text style={styles.title}> {props.text} </Text>
-            <Button color="black" title="Use timer ?" labelStyle={{ color: "black", fontSize: 18 }} onPress = { () => {navigation.navigate("Timer")}} >
-                
-            </Button>
+            <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     title: {
-        color: 'blue',
+        color: 'black',
       textAlign: 'center',
       fontSize: 20,
       fontWeight: 'bold',
