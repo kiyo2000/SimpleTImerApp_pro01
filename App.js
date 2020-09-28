@@ -80,7 +80,7 @@ export default function App() {
           })}
         >
           {/* Passing object via props */}
-          { (props) => <HomeScreen  {...props} text="- Welcome Home Screen -" /> } 
+          { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
         </Stack.Screen>
         <Stack.Screen name = "Timer" component = {TimerScreen} />
       </Stack.Navigator>

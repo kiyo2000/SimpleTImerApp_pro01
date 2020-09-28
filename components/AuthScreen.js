@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#f59842',
+        color: 'blue',
         textAlign: 'center',
         marginTop: 15,
     },
@@ -139,13 +139,15 @@ const styles = StyleSheet.create({
     input: {
         padding: 10,
         borderWidth: 1,
-        borderColor: '#f59842',
+        borderColor: 'red',
         marginVertical: 25,
+        borderRadius: 15,
     },
 
     button: {
         padding: 10,
-        backgroundColor: '#f59842',
+        backgroundColor: 'red',
+        borderRadius: 15,
     },
 
     buttonText: {
@@ -158,10 +160,11 @@ const styles = StyleSheet.create({
     buttonDisabled: {
         padding: 10,
         backgroundColor: '#888888',
+        borderRadius: 15,
     },
 
     altText :{
-        color: '#03fca5',
+        color: 'blue',
         fontSize: 15,
         textAlign: 'center',
         marginTop: 30,
@@ -173,9 +176,9 @@ const styles = StyleSheet.create({
     },
 
     altButtonText: {
-        color: '#03fca5',
+        color: 'blue',
         fontSize: 18,
-        borderColor: '#03fca5',
+        borderColor: 'yellow',
         textAlign: 'center',
     }
 
