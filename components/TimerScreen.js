@@ -93,7 +93,6 @@ export const TimerScreen = (props) => {
 //     const [ paused, pauseTime ] = useState( false )
 //     // global reference for timer
 //     let timer = null
-
 //     //Display start button text and start timer
 //     const startButton = () => {
 //         return(

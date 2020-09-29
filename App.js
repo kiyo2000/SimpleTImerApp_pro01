@@ -57,31 +57,31 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-    {/* <Stack.Screen name = "Signup" component={AuthScreen} /> */}
-    <Stack.Screen name = "SIGNUP" >
-      { (props) => <AuthScreen {...props} signup={ signup } loggedIn={auth} />}
-    </Stack.Screen>
-    {/* Prviously <Stack.Screen name = "Home" component = {HomeScreen} /> */}
-    {/* Adding sign out function on navigation */}
-        <Stack.Screen 
-          name = "HOME"
-          options={({navigation,route}) => ({
-           // headerTitle: "HOME",
-            headerRight: () => (
-              <TouchableOpacity style={styles.signout} onPress={() => {
-                firebase.auth().signOut().then(() => {
-                  setAuth(false)
-                  navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
-                })
-              }}>
-                  <Text style={styles.signoutText}> SIGNOUT </Text>
-              </TouchableOpacity>
-            )
-          })}
-        >
-          {/* Passing object via props */}
-          { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
+        {/*Create a screen on Stack <Stack.Screen name = "SIGNUP" component={AuthScreen} /> */}
+        <Stack.Screen name = "SIGNUP" >
+          { (props) => <AuthScreen {...props} signup={ signup } loggedIn={auth} />}
         </Stack.Screen>
+        {/* Prviously <Stack.Screen name = "HOME" component = {HomeScreen} /> */}
+        {/* Adding sign out function on navigation */}
+          <Stack.Screen 
+            name = "HOME"
+            options={({navigation,route}) => ({
+            // headerTitle: "HOME",
+              headerRight: () => (
+                <TouchableOpacity style={styles.signout} onPress={() => {
+                  firebase.auth().signOut().then(() => {
+                    setAuth(false)
+                    navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
+                  })
+                }}>
+                    <Text style={styles.signoutText}> SIGNOUT </Text>
+                </TouchableOpacity>
+              )
+            })}
+          >
+            {/* Passing object via props */}
+            { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
+          </Stack.Screen>
         <Stack.Screen name = "TIMER" component = {TimerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
