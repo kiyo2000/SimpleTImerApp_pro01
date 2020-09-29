@@ -25,6 +25,14 @@ import { DetailScreen } from './components/DetailScreen'//As a guidline
 import { TouchableOpacity } from 'react-native-gesture-handler';
 //import { useState } from 'react'; // Commented out because a new useState has been added to line 2.
 
+//As a guidline
+const Data = [
+  {  "amount": 50,  "category": "food",  "id": "1598241633",  "note": "buying lunch"},
+  {  "amount": 20,  "category": "transport",  "id": "1598241768",  "note": "catching train"},
+  {  "amount": 80,  "category": "groceries",  "id": "1598241782",  "note": "shopping at Coles"},
+]
+
+
 
 export default function App() {
 
