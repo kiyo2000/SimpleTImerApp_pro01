@@ -14,7 +14,7 @@ export const HomeScreen = (props) => {
             <TouchableOpacity 
                 style={styles.button}
                 onPress={() => console.log("touchable opacity pressed")}//for debugging
-                onPress = { () => {navigation.navigate("Timer")}}
+                onPress = { () => {navigation.navigate("TIMER")}}
             >
                 <Text style={styles.text}>Use Timer ?</Text>
             </TouchableOpacity>

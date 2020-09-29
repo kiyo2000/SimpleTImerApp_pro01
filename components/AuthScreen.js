@@ -22,7 +22,7 @@ export const AuthScreen = ( props ) => {
             //Replaced with navigation.navigate("Home") // 0 is the top on the naviation tree
             navigation.reset({
                 index: 0,
-                routes: [{ name: "Home" }]
+                routes: [{ name: "HOME" }]
             })
         }
     })
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
 
     button: {
         padding: 10,
-        backgroundColor: 'yellow',
+        backgroundColor: '#888888',
         borderRadius: 15,
     },
 
