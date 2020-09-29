@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button, Flatlist } from 'react-native';
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
 
@@ -11,7 +11,7 @@ export const HomeScreen = (props) => {
             <Text style={styles.title}> {props.text} </Text>
 
             {/* As a guideline */}
-            <Button title="Go to Detail" onPress={() => {navigation.navigate()}} />
+            {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
             {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
             {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
             <TouchableOpacity 
