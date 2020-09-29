@@ -88,21 +88,21 @@ export default function App() {
         </Stack.Screen>
         {/* As a guidline */}
         <Stack.Screen name="DETAIL" component= {DetailScreen} /> 
-        <Stack.Screen name = "TIMER" component = {TimerScreen} 
-        options={({navigation,route}) => ({
-         
-            headerRight: () => (
-              <TouchableOpacity style={styles.signout} onPress={() => {
-                firebase.auth().signOut().then(() => {
-                  setAuth(false)
-                  navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
-                })
-              }}>
-                <Text style={styles.signoutText}> SIGNOUT </Text>
-              </TouchableOpacity>
-            )
-          })}
-        >
+        <Stack.Screen name= "TIMER" component = {TimerScreen} 
+          options={({navigation,route}) => ({
+          
+              headerRight: () => (
+                <TouchableOpacity style={styles.signout} onPress={() => {
+                  firebase.auth().signOut().then(() => {
+                    setAuth(false)
+                    navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
+                  })
+                }}>
+                  <Text style={styles.signoutText}> SIGNOUT </Text>
+                </TouchableOpacity>
+              )
+            })}
+          >
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
