@@ -9,8 +9,8 @@ export const HomeScreen = (props) => {
     return (
         <View>
             <Text style={styles.title}> {props.text} </Text>
-            {/* <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
-
+            {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
+            {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
             <TouchableOpacity 
                 style={styles.button}
                 onPress={() => console.log("touchable opacity pressed")}//for debugging

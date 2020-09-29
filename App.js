@@ -67,36 +67,51 @@ export default function App() {
         </Stack.Screen>
         {/* Prviously <Stack.Screen name = "HOME" component = {HomeScreen} /> */}
         {/* Adding sign out function on navigation */}
-          <Stack.Screen 
-            name = "HOME"
-            options={({navigation,route}) => ({
-            // headerTitle: "HOME",
-              headerRight: () => (
-                <TouchableOpacity style={styles.signout} onPress={() => {
-                  firebase.auth().signOut().then(() => {
-                    setAuth(false)
-                    navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
-                  })
-                }}>
-                    <Text style={styles.signoutText}> SIGNOUT </Text>
-                </TouchableOpacity>
-              )
-            })}
-          >
-            {/* Passing object via props */}
-            { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
-          </Stack.Screen>
-        <Stack.Screen name="DETAIL" component= {DetailScreen} />
-        <Stack.Screen name = "TIMER" component = {TimerScreen} />
+        <Stack.Screen 
+          name = "HOME"
+          options={({navigation,route}) => ({
+          // headerTitle: "HOME",
+            headerRight: () => (
+              <TouchableOpacity style={styles.signout} onPress={() => {
+                firebase.auth().signOut().then(() => {
+                  setAuth(false)
+                  navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
+                })
+              }}>
+                <Text style={styles.signoutText}> SIGNOUT </Text>
+              </TouchableOpacity>
+            )
+          })}
+        >
+          {/* Passing object via props */}
+          { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
+        </Stack.Screen>
+        {/* As a guidline */}
+        <Stack.Screen name="DETAIL" component= {DetailScreen} /> 
+        <Stack.Screen name = "TIMER" component = {TimerScreen} 
+        options={({navigation,route}) => ({
+         
+            headerRight: () => (
+              <TouchableOpacity style={styles.signout} onPress={() => {
+                firebase.auth().signOut().then(() => {
+                  setAuth(false)
+                  navigation.reset({ index: 0, routes: [{name: "SIGNUP"}] })
+                })
+              }}>
+                <Text style={styles.signoutText}> SIGNOUT </Text>
+              </TouchableOpacity>
+            )
+          })}
+        >
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
 
 //Initialise Navigation Stack
 const Stack = createStackNavigator()
-
+//CSS
 const styles = StyleSheet.create({
   container: {
     flex: 1,
