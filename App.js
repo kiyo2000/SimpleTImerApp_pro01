@@ -27,11 +27,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 //As a guidline
 const Data = [
-  {  "amount": 50,  "category": "food",  "id": "1598241633",  "note": "buying lunch"},
-  {  "amount": 20,  "category": "transport",  "id": "1598241768",  "note": "catching train"},
-  {  "amount": 80,  "category": "groceries",  "id": "1598241782",  "note": "shopping at Coles"},
+  {  "amount": 35,  "category": "entertainment",  "id": "1598241645",  "note": "extra dessert"},
+  {  "amount": 550,  "category": "rent",  "id": "1598341768",  "note": "weelky rent"},
+  {  "amount": 45,  "category": "social",  "id": "1534241782",  "note": "watching movies"},
 ]
-
 
 
 export default function App() {
@@ -66,6 +65,9 @@ export default function App() {
       }
     } )
 
+  //Declare another variable to pass the list of data
+  const listData = Data
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -91,8 +93,8 @@ export default function App() {
             )
           })}
         >
-          {/* Passing object via props */}
-          { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
+          {/* Passing object via props( text and data) */}
+          { (props) => <HomeScreen  {...props} text="Hello, let's begin!" data={listData} /> } 
         </Stack.Screen>
         {/* As a guidline */}
         <Stack.Screen name="DETAIL" component= {DetailScreen} /> 
