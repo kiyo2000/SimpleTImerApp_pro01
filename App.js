@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+
 //Import Firebase config here
 import { firebaseConfig } from './config/firebase'
 
@@ -19,8 +20,11 @@ firebase.initializeApp( firebaseConfig )
 import { HomeScreen } from './components/HomeScreen'
 import { TimerScreen } from './components/TimerScreen'
 import { AuthScreen } from './components/AuthScreen'
+import { DetailScreen } from './components/DetailScreen'//As a guidline
+
 import { TouchableOpacity } from 'react-native-gesture-handler';
 //import { useState } from 'react'; // Commented out because a new useState has been added to line 2.
+
 
 export default function App() {
 
@@ -82,6 +86,7 @@ export default function App() {
             {/* Passing object via props */}
             { (props) => <HomeScreen  {...props} text="Hello, let's begin!" /> } 
           </Stack.Screen>
+        <Stack.Screen name="DETAIL" component= {DetailScreen} />
         <Stack.Screen name = "TIMER" component = {TimerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
