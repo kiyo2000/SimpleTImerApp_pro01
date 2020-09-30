@@ -11,12 +11,14 @@ export const HomeScreen = (props) => {
     // Receive "item" from FlatList
     // Pass a list of data choosing by ID as a function
     // Return a component named ListItem
+    // Pass the actual items and throws the entire objects /item ={item}
     const renderList = ({item}) => (
         <ListItem 
         id={item.id} 
         amount={item.amount} 
         category={item.category} 
         clickHandler = {showDetail}
+        item ={item}
         />
     )
 
@@ -55,9 +57,11 @@ export const HomeScreen = (props) => {
 }
 
 //Define ListItem as a component for listing items
+//Use TouchableOpacity and onPress to make components handle clicks
+// and then pass the entire objects/items via the clickHandler function.
 const ListItem = (props) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.clickHandler(props.item)}>
             <View style={styles.item}>
                 <Text>{props.id}:</Text>
                 <Text>${props.amount}</Text>
