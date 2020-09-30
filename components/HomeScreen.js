@@ -57,11 +57,13 @@ export const HomeScreen = (props) => {
 //Define ListItem as a component for listing items
 const ListItem = (props) => {
     return (
-        <View style={styles.item}>
-            <Text>{props.id}:</Text>
-            <Text>${props.amount}</Text>
-            <Text>/{props.category}</Text>
-        </View>
+        <TouchableOpacity>
+            <View style={styles.item}>
+                <Text>{props.id}:</Text>
+                <Text>${props.amount}</Text>
+                <Text>/{props.category}</Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
