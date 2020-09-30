@@ -16,6 +16,9 @@ export const HomeScreen = (props) => {
     ]
 
     const [category, setCategory] = useState(null)
+    //For Add
+    const [amount, setAmount] = useState(0)
+    const [note, setNote] = useState(null)
     
     //Represent useNavigation function
     const navigation = useNavigation()
