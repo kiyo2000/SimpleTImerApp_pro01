@@ -59,13 +59,22 @@ export const HomeScreen = (props) => {
 
                 {/*Read text from screen  */}
                 <View style={styles.container}>
-                    <TextInput style={styles.input} placeholder="Amount" />
+                    {/* Change the text of amount */}
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder="Amount"
+                        onChangeText={(amount) => setAmount(amount)}
+                    />
                     <RNPickerSelect 
                         onValueChange={(value) => setCategory(value) }
                         items = { selectItems }
                         useNativeAndroidPickerStyle={false}
                     />
-                    <TextInput style={styles.input} placeholder="Notes" />
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder="Notes"
+                        onChangeText={(note) => setNote(note)}
+                    />
                     <TouchableOpacity>
                         <Text>Add</Text>
                     </TouchableOpacity>
@@ -126,7 +135,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     input: {
-        marginTop:15,
+        fontSize: 20,
         padding: 10,
         borderColor:"blue",
         borderWidth: 1,
