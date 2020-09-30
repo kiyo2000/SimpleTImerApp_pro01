@@ -91,53 +91,53 @@ export const HomeScreen = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-            {/* End of render code for Timer ---------------------------------------- */}
+        {/* End of render code for Timer ---------------------------------------- */}
 
-            {/* <Text>{props.text}</Text> */}
-            {/* <Text style={styles.title}> {props.text} </Text> */}
-            {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
-            {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
-            <TouchableOpacity 
-                style={styles.button}
-                onPress={() => console.log("touchable opacity pressed")}//for debugging
-                onPress = { () => {navigation.navigate("TIMER")}}
-            >
-                <Text style={styles.text}>Use Timer ?</Text>
-            </TouchableOpacity>
+        {/* <Text>{props.text}</Text> */}
+        {/* <Text style={styles.title}> {props.text} </Text> */}
+        {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
+        {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
+        <TouchableOpacity 
+            style={styles.button}
+            onPress={() => console.log("touchable opacity pressed")}//for debugging
+            onPress = { () => {navigation.navigate("TIMER")}}
+        >
+            <Text style={styles.text}>Use Timer ?</Text>
+        </TouchableOpacity>
 
-                {/*Read text from screen  */}
-                <View style={styles.container}>
-                    {/* Change the text of amount */}
-                    <TextInput 
-                        style={styles.input} 
-                        placeholder="Amount"
-                        onChangeText={(amount) => setAmount(amount)}
-                    />
-                    <RNPickerSelect 
-                        onValueChange={(value) => setCategory(value) }
-                        items = { selectItems }
-                        useNativeAndroidPickerStyle={false}
-                    />
-                    <TextInput 
-                        style={styles.input} 
-                        placeholder="Notes"
-                        onChangeText={(note) => setNote(note)}
-                    />
-                    <TouchableOpacity>
-                        <Text>Add</Text>
-                    </TouchableOpacity>
-                </View>
-            {/* As a guideline */}
-            {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
-            {/* Create Flatlist to render a list of items. Replaced Button above. */}
-            {/* Receiving data via props from App.js */}
-            <FlatList
-                style={styles.flatlist}
-                data = {props.data}
-                renderItem ={renderList}
-                keyExtractor = { item => item.id }
-            />
-        </View>
+            {/*Read text from screen  */}
+            <View style={styles.container}>
+                {/* Change the text of amount */}
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="Amount"
+                    onChangeText={(amount) => setAmount(amount)}
+                />
+                <RNPickerSelect 
+                    onValueChange={(value) => setCategory(value) }
+                    items = { selectItems }
+                    useNativeAndroidPickerStyle={false}
+                />
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="Notes"
+                    onChangeText={(note) => setNote(note)}
+                />
+                <TouchableOpacity>
+                    <Text>Add</Text>
+                </TouchableOpacity>
+            </View>
+        {/* As a guideline */}
+        {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
+        {/* Create Flatlist to render a list of items. Replaced Button above. */}
+        {/* Receiving data via props from App.js */}
+        <FlatList
+            style={styles.flatlist}
+            data = {props.data}
+            renderItem ={renderList}
+            keyExtractor = { item => item.id }
+        />
+    </View>
     )
 }
 
@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "yellow",
         padding: 7,
+        marginBottom: 10,
     },
     text: {
         color: "black",
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
         borderRadius: 15, 
     },
     flatlist: {
-        marginTop:45,
+        marginTop:55,
     },
   });
 
