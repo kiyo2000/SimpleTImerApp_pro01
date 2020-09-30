@@ -11,7 +11,10 @@ export const Select = (props) =>{
             <TouchableOpacity 
                 style={selectStyles.selectItem}
                 key={index} 
-                onPress={() => {setSelected(item.value)}}
+                onPress={() => {
+                    setSelected(item.value)
+                    setVisible(false)
+                }}
                 >
                  <Text>{item.label}</Text>
             </TouchableOpacity>
