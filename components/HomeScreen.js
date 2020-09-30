@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'reac
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler';
-//import RNPickerSelect from 'react-native-picker-select'
-import {Picker} from '@react-native-community/picker'
+import RNPickerSelect from 'react-native-picker-select'
+//import {Picker} from '@react-native-community/picker'
 
 
 export const HomeScreen = (props) => {
@@ -60,6 +60,7 @@ export const HomeScreen = (props) => {
                     <RNPickerSelect 
                         onValueChange={(value) => setCategory(value) }
                         items = { selectItems }
+                        useNativeAndroidPickerStyle={false}
                     />
 
                     {/* <Picker>
