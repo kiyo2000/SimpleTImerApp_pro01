@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'react-native';
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
@@ -42,6 +42,25 @@ export const HomeScreen = (props) => {
     const showDetail = ( item ) =>{
         navigation.navigate("DETAIL", item)
     }
+
+    //**
+    //* Insert code for Timer ---------------------------------------------
+    //**
+    const [time, setTime] = useState(0)
+    const [paused, setPaused] = useState(true)
+  
+    // global reference for timer
+    let timer = null
+  
+    useEffect(() => {
+      if (!paused) {
+        timer = setInterval(() => {
+          setTime(time => time + 1);
+        }, 1000)
+        return () => clearInterval(timer)
+      }
+    })
+    //** End of Timer code ---------------------------------------------- */
 
     return (
         <View style={styles.container}>

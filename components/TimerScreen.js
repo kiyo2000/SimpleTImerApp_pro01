@@ -20,24 +20,24 @@ export const TimerScreen = (props) => {
     })
   
     return (
-      <View style={styles.container}>
+      <View style={styles.containerTimer}>
         <Text style={styles.time}>{time} seconds</Text>
-        <TouchableOpacity style={styles.button} onPress={() => {
+        <TouchableOpacity style={styles.buttonTimer} onPress={() => {
           setPaused(paused ? false : true)
         }} >
           {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
           <Text style={styles.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
         </TouchableOpacity>
-        <View style={styles.row}>
+        <View style={styles.rowSaveDelete}>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            styles.delete]}
-          >
-            <Text style={styles.saveText}>Delete</Text>
+            styles.buttonDelete
+          ]}>
+            <Text style={styles.deleteText}>Delete</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            styles.save
+            styles.buttonSave
             ]}>
             <Text style={styles.saveText}>Save</Text>
           </TouchableOpacity>
@@ -47,7 +47,7 @@ export const TimerScreen = (props) => {
   }
   
   const styles = StyleSheet.create({
-    container: {
+    containerTimer: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
@@ -56,7 +56,7 @@ export const TimerScreen = (props) => {
     time: {
       fontSize: 32,
     },
-    button: {
+    buttonTimer: {
       marginTop: 20,
       backgroundColor: 'yellow',
       padding: 15,
@@ -67,7 +67,7 @@ export const TimerScreen = (props) => {
         fontSize: 20,
         textAlign: "center",
     },
-    row: {
+    rowSaveDelete: {
       flexDirection: 'row',
       position: 'absolute',
       bottom: 15,
@@ -75,15 +75,19 @@ export const TimerScreen = (props) => {
       padding: 10,
       width: '100%',
     },
-    delete: {
+    buttonDelete: {
         backgroundColor: 'red',
         padding: 15,
         borderRadius: 50,
       },
-    save: {
+    buttonSave: {
       backgroundColor: 'blue',
       padding: 15,
       borderRadius: 50,
+    },
+    deleteText: {
+      color: 'white',
+      fontSize:15,
     },
     saveText: {
       color: 'white',
