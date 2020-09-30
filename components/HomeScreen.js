@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'react-native';
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
@@ -7,6 +7,15 @@ import RNPickerSelect from 'react-native-picker-select'
 
 
 export const HomeScreen = (props) => {
+    //Temporary data holder for replacing with Firebase later on
+    const selectItems = [
+        {label: 'Study', value: "Speed_typing "},
+        {label: 'Workout', value: "Stretching"},
+        {label: 'Multi Purpose', value: "Cooking_01"},
+    ]
+
+    const [category, setCategory] = useState(null)
+    
     //Represent useNavigation function
     const navigation = useNavigation()
 
@@ -48,6 +57,10 @@ export const HomeScreen = (props) => {
                 {/*Read text from screen  */}
                 <View style={styles.input}>
                     <TextInput placeholder="Amount" />
+                    <RNPickerSelect 
+                        onValueChange={(value) => setCategory(value) }
+                        items = { selectItems }
+                    />
                 </View>
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
