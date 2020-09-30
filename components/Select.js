@@ -8,8 +8,19 @@ export const Select = (props) =>{
         <View>
             <TouchableOpacity>
                 <Text>{selected}</Text>
-                <Image source={require('../assets/chevron-circle-down-solid.png')} />
+                <Image 
+                    style={selectStyles.selectImage} 
+                    source={require('../assets/chevron-circle-down-solid.png')} 
+                />
             </TouchableOpacity>
         </View>
     )
 }
+
+const selectStyles = StyleSheet.create({
+    selectImage:{
+        width: 20,
+        height: 20,
+        position: 'absolute',
+    },
+})
