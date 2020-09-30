@@ -113,11 +113,12 @@ export const HomeScreen = (props) => {
                     placeholder="Amount"
                     onChangeText={(amount) => setAmount(amount)}
                 />
-                <RNPickerSelect 
+                {/* Commented out for using Select.js */}
+                {/* <RNPickerSelect 
                     onValueChange={(value) => setCategory(value) }
                     items = { selectItems }
                     useNativeAndroidPickerStyle={false}
-                />
+                /> */}
                 <TextInput 
                     style={styles.input} 
                     placeholder="Notes"
