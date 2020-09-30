@@ -5,6 +5,8 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Modal, Image } fr
 export const Select = (props) =>{
     const [selected, setSelected] = useState('Select Category')
     const [visible, setVisible] = useState(false)
+    //Calling items from HomeScreen
+    const Items = props.items
 
     return(
         <View>
@@ -17,8 +19,13 @@ export const Select = (props) =>{
             </TouchableOpacity>
             <Modal
                 animationType="slide"
+                visible = {visible}
             >
-
+                <View>
+                    <ScrollView
+                    
+                    ></ScrollView>
+                </View>
             </Modal>
         </View>
     )
