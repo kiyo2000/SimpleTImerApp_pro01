@@ -83,13 +83,13 @@ export const HomeScreen = (props) => {
             onPress={()=>{
                 setTime(0)
             }}>
-            <Text style={timerStyle.deleteText}>Delete</Text>
+                <Text style={timerStyle.deleteText}>Delete</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
             timerStyle.buttonSave
             ]}>
-            <Text style={timerStyle.saveText}>Save</Text>
+                <Text style={timerStyle.saveText}>Save</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -121,6 +121,7 @@ export const HomeScreen = (props) => {
                     items = { selectItems }
                     useNativeAndroidPickerStyle={false}
                 /> */}
+                <Select />
                 <TextInput 
                     style={styles.input} 
                     placeholder="Notes"
