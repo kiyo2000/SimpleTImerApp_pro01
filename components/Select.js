@@ -6,7 +6,17 @@ export const Select = (props) =>{
     const [selected, setSelected] = useState('Select Category')
     const [visible, setVisible] = useState(false)
     //Calling items from HomeScreen
-    const Items = props.items
+    const Items = props.items.map((item,index) =>{
+        return (
+            <TouchableOpacity 
+                style={selectStyles.selectItem}
+                key={index} 
+                onPress={() => {setSelected(item.value)}}
+                >
+                 <Text>{item.label}</Text>
+            </TouchableOpacity>
+        )
+    })
 
     return(
         <View>
@@ -48,5 +58,11 @@ const selectStyles = StyleSheet.create({
         width: 20,
         height: 20,
         //position: 'absolute',
+    },
+    selectItem:{
+        paddingVertical:10,
+        paddingHorizontal: 5,
+        borderBottomColor: '#dddddd',
+        borderBottomWidth: 2,
     },
 })
