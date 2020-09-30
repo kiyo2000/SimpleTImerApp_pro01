@@ -43,7 +43,7 @@ export const HomeScreen = (props) => {
             >
                 <Text style={styles.text}>Use Timer ?</Text>
             </TouchableOpacity>
-            
+
                 {/*Read text from screen  */}
                 <View style={styles.input}>
                     <TextInput placeholder="Amount" />
@@ -70,8 +70,6 @@ const ListItem = (props) => {
             <View style={styles.item}>
                 <Text>{props.id}:</Text>
                 <Text>${props.amount}</Text>
-                <Text>/{props.category}</Text>
-                <Text>Note: {props.note}</Text>
             </View>
         </TouchableOpacity>
     )
