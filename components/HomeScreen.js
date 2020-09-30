@@ -63,10 +63,8 @@ export const HomeScreen = (props) => {
     //** End of Timer code ---------------------------------------------- */
 
     return (
-
-
-    
         <View style={styles.container}>
+            {/* Insert render codes for Timer ---------------------------------------- */}
             <View style={styles.containerTimer}>
                     <Text style={styles.time}>{time} seconds</Text>
                     <TouchableOpacity style={styles.buttonTimer} onPress={() => {
@@ -90,6 +88,7 @@ export const HomeScreen = (props) => {
                     </TouchableOpacity>
                     </View>
                 </View>
+            {/* End of render code for Timer ---------------------------------------- */}
 
             {/* <Text>{props.text}</Text> */}
             {/* <Text style={styles.title}> {props.text} </Text> */}
@@ -191,3 +190,60 @@ const styles = StyleSheet.create({
         marginTop:25,
     },
   });
+
+  // CSS for Timer -------------------------------------------------------------------
+  const timerStyle = StyleSheet.create({
+    containerTimer: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      //justifyContent: 'center',
+    },
+    time: {
+      fontSize: 15,
+    },
+    buttonTimer: {
+      marginTop: 5,
+      backgroundColor: 'yellow',
+      padding: 5,
+      minWidth: 100,
+      borderRadius: 50,
+    },
+    mainButtontext: {
+        fontSize: 15,
+        textAlign: "center",
+    },
+    rowSaveDelete: {
+      marginTop: 10,
+      flexDirection: 'row',
+      position: 'absolute',
+      //bottom: 15,
+      justifyContent: 'space-between',
+      padding: 10,
+      width: '100%',
+    },
+    buttonDelete: {
+        backgroundColor: 'red',
+        padding: 5,
+        borderRadius: 50,
+        minWidth: 100,//Added
+        marginTop: 5,//Added
+      },
+    buttonSave: {
+      backgroundColor: 'blue',
+      padding: 5,
+      borderRadius: 50,
+      minWidth: 100,//Added
+      marginTop: 5,//Added
+    },
+    deleteText: {
+      color: 'white',
+      fontSize:15,
+      textAlign: "center",//Added
+    },
+    saveText: {
+      color: 'white',
+      fontSize:15,
+      textAlign: "center",//Added
+    },
+});

@@ -20,33 +20,33 @@ export const TimerScreen = (props) => {
     })
   
     return (
-      <View style={styles.containerTimer}>
-        <Text style={styles.time}>{time} seconds</Text>
-        <TouchableOpacity style={styles.buttonTimer} onPress={() => {
+      <View style={timerStyle.containerTimer}>
+        <Text style={timerStyle.time}>{time} seconds</Text>
+        <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
           setPaused(paused ? false : true)
         }} >
           {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
-          <Text style={styles.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
+          <Text style={timerStyle.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
         </TouchableOpacity>
-        <View style={styles.rowSaveDelete}>
+        <View style={timerStyle.rowSaveDelete}>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            styles.buttonDelete
+            timerStyle.buttonDelete
           ]}>
-            <Text style={styles.deleteText}>Delete</Text>
+            <Text style={timerStyle.deleteText}>Delete</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            styles.buttonSave
+            timerStyle.buttonSave
             ]}>
-            <Text style={styles.saveText}>Save</Text>
+            <Text style={timerStyle.saveText}>Save</Text>
           </TouchableOpacity>
         </View>
       </View>
     );
   }
   
-  const styles = StyleSheet.create({
+  const timerStyle = StyleSheet.create({
     containerTimer: {
       flex: 1,
       backgroundColor: '#fff',
