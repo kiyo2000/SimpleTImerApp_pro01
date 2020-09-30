@@ -1,3 +1,4 @@
+import { storage } from 'firebase';
 import React,{useState} from 'react'
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Modal, Image } from 'react-native';
 
@@ -6,7 +7,7 @@ export const Select = (props) =>{
     //Return View with a button
     return(
         <View>
-            <TouchableOpacity>
+            <TouchableOpacity style={selectStyles.selectRow}>
                 <Text>{selected}</Text>
                 <Image 
                     style={selectStyles.selectImage} 
@@ -18,9 +19,17 @@ export const Select = (props) =>{
 }
 
 const selectStyles = StyleSheet.create({
+    selectRow:{
+        flexDirection: 'row',
+        //position: 'absolute',
+        justifyContent: 'space-between',
+        padding: 10,
+        width: '100%',
+    },
+
     selectImage:{
         width: 20,
         height: 20,
-        position: 'absolute',
+        //position: 'absolute',
     },
 })
