@@ -20,7 +20,10 @@ export const Select = (props) =>{
 
     return(
         <View>
-            <TouchableOpacity style={selectStyles.selectRow}>
+            <TouchableOpacity 
+                style={selectStyles.selectRow}
+                onPress={() => setVisible(true)}
+                >
                 <Text>{selected}</Text>
                 <Image 
                     style={selectStyles.selectImage} 
