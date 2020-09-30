@@ -5,13 +5,28 @@ import { useNavigation } from '@react-navigation/native'
 
 
 export const HomeScreen = (props) => {
+    //Represent useNavigation function
     const navigation = useNavigation()
-    // Receive "item" from Flatlist
-    // Passing a list of data choosing by ID as a function
-    // Retrun a component ListItem
+
+    // Receive "item" from FlatList
+    // Pass a list of data choosing by ID as a function
+    // Return a component named ListItem
     const renderList = ({item}) => (
-        <ListItem id={item.id} amount={item.amount} category={item.category} />
+        <ListItem 
+        id={item.id} 
+        amount={item.amount} 
+        category={item.category} 
+        clickHandler = {showDetail}
+        />
     )
+
+    //Make the App to navigate by navigate method 
+    // Pass item as a parameter.
+    const showDetail = ( item ) =>{
+        navigation.navigate("DETAIL", item)
+    }
+
+
     return (
         <View>
             {/* <Text>{props.text}</Text> */}
@@ -43,9 +58,9 @@ export const HomeScreen = (props) => {
 const ListItem = (props) => {
     return (
         <View style={styles.item}>
-            <Text>{props.id}</Text>
-            <Text>{props.amount}</Text>
-            <Text>{props.category}</Text>
+            <Text>{props.id}:</Text>
+            <Text>${props.amount}</Text>
+            <Text>/{props.category}</Text>
         </View>
     )
 }
