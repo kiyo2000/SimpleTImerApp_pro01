@@ -44,7 +44,7 @@ export const HomeScreen = (props) => {
     }
 
     //**
-    //* Insert code for Timer ---------------------------------------------
+    //* Insert codes for Timer ---------------------------------------------
     //**
     const [time, setTime] = useState(0)
     const [paused, setPaused] = useState(true)
@@ -63,7 +63,34 @@ export const HomeScreen = (props) => {
     //** End of Timer code ---------------------------------------------- */
 
     return (
+
+
+    
         <View style={styles.container}>
+            <View style={styles.containerTimer}>
+                    <Text style={styles.time}>{time} seconds</Text>
+                    <TouchableOpacity style={styles.buttonTimer} onPress={() => {
+                    setPaused(paused ? false : true)
+                    }} >
+                    {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
+                    <Text style={styles.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
+                    </TouchableOpacity>
+                    <View style={styles.rowSaveDelete}>
+                    <TouchableOpacity 
+                        style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+                        styles.buttonDelete
+                    ]}>
+                        <Text style={styles.deleteText}>Delete</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+                        styles.buttonSave
+                        ]}>
+                        <Text style={styles.saveText}>Save</Text>
+                    </TouchableOpacity>
+                    </View>
+                </View>
+
             {/* <Text>{props.text}</Text> */}
             {/* <Text style={styles.title}> {props.text} </Text> */}
             {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
