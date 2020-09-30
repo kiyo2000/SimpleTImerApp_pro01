@@ -8,7 +8,7 @@ export const HomeScreen = (props) => {
     const navigation = useNavigation()
     // Passing a list of data choosing by ID as a function
     const renderList = ({item}) => (
-        <ListItem id={item.id} amount={item.amount} />
+        <ListItem id={item.id} amount={item.amount} category={item.category} />
     )
     return (
         <View>
@@ -42,6 +42,7 @@ const ListItem = (props) => {
         <View style={styles.item}>
             <Text>{props.id}</Text>
             <Text>{props.amount}</Text>
+            <Text>{props.category}</Text>
         </View>
     )
 }
