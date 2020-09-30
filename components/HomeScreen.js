@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     },
     item: {
         paddingHorizontal: 15,
-        paddingVertical: 20,
+        paddingVertical: 15,
         borderBottomWidth: 2,
         borderColor: "lightgray",
         flexDirection: 'row',
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
         borderRadius: 15, 
     },
     flatlist: {
-        marginTop:55,
+        marginTop: 100,
     },
   });
 

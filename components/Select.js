@@ -14,6 +14,11 @@ export const Select = (props) =>{
                     source={require('../assets/chevron-circle-down-solid.png')} 
                 />
             </TouchableOpacity>
+            <Modal
+                animationType="slide"
+            >
+
+            </Modal>
         </View>
     )
 }
@@ -25,6 +30,10 @@ const selectStyles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         width: '100%',
+        borderWidth: 1,
+        borderRadius: 15,
+        marginTop: 10,
+        marginBottom: 10,
     },
 
     selectImage:{
