@@ -31,7 +31,7 @@ export const HomeScreen = (props) => {
 
 
     return (
-        <View>
+        <View style={styles.container}>
             {/* <Text>{props.text}</Text> */}
             {/* <Text style={styles.title}> {props.text} </Text> */}
             {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
@@ -43,7 +43,9 @@ export const HomeScreen = (props) => {
             >
                 <Text style={styles.text}>Use Timer ?</Text>
             </TouchableOpacity>
-                <View>
+            
+                {/*Read text from screen  */}
+                <View style={styles.input}>
                     <TextInput placeholder="Amount" />
                 </View>
             {/* As a guideline */}
@@ -85,11 +87,15 @@ const styles = StyleSheet.create({
     button: {
         alignItems: "center",
         backgroundColor: "yellow",
-        padding: 3,
+        padding: 7,
     },
     text: {
         color: "black",
-        fontSize: 15,
+        fontSize: 20,
+    },
+    container:{
+        flex:1,
+        paddingHorizontal: 10,
     },
     item: {
         paddingHorizontal: 15,
@@ -98,5 +104,12 @@ const styles = StyleSheet.create({
         borderColor: "lightgray",
         flexDirection: 'row',
         justifyContent: "space-between",
+    },
+    input: {
+        marginTop:15,
+        padding: 10,
+        borderColor:"blue",
+        borderWidth: 1,
+        borderRadius: 15, 
     },
   });
