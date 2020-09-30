@@ -57,10 +57,10 @@ export const HomeScreen = (props) => {
                 {/*Read text from screen  */}
                 <View style={styles.input}>
                     <TextInput placeholder="Amount" />
-                    <RNPickerSelect 
+                    {/* <RNPickerSelect 
                         onValueChange={(value) => setCategory(value) }
                         items = { selectItems }
-                    />
+                    /> */}
                 </View>
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
