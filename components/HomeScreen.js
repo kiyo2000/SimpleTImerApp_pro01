@@ -77,7 +77,10 @@ export const HomeScreen = (props) => {
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
             timerStyle.buttonDelete
-          ]}>
+            ]}
+            onPress={()=>{
+                setTime(0)
+            }}>
             <Text style={timerStyle.deleteText}>Delete</Text>
           </TouchableOpacity>
           <TouchableOpacity 
