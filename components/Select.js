@@ -4,7 +4,8 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Modal, Image } fr
 
 export const Select = (props) =>{
     const [selected, setSelected] = useState('Select Category')
-    //Return View with a button
+    const [visible, setVisible] = useState(false)
+
     return(
         <View>
             <TouchableOpacity style={selectStyles.selectRow}>
