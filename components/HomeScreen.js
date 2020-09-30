@@ -55,14 +55,14 @@ export const HomeScreen = (props) => {
             </TouchableOpacity>
 
                 {/*Read text from screen  */}
-                <View style={styles.input}>
-                    <TextInput placeholder="Amount" />
+                <View style={styles.container}>
+                    <TextInput style={styles.input} placeholder="Amount" />
                     <RNPickerSelect 
                         onValueChange={(value) => setCategory(value) }
                         items = { selectItems }
                         useNativeAndroidPickerStyle={false}
                     />
-
+                    <TextInput style={styles.input} placeholder="Notes" />
                     {/* <Picker>
                         <Picker.Item label="Study" value="Speed Writing" />
                         <Picker.Item label="Workout" value="Meditation" />
@@ -73,6 +73,7 @@ export const HomeScreen = (props) => {
             {/* Create Flatlist to render a list of items. Replaced Button above. */}
             {/* Receiving data via props from App.js */}
             <FlatList
+                style={styles.flatlist}
                 data = {props.data}
                 renderItem ={renderList}
                 keyExtractor = { item => item.id }
@@ -128,5 +129,8 @@ const styles = StyleSheet.create({
         borderColor:"blue",
         borderWidth: 1,
         borderRadius: 15, 
+    },
+    flatlist: {
+        marginTop:25,
     },
   });
