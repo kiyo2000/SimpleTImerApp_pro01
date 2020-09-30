@@ -58,7 +58,7 @@ export const HomeScreen = (props) => {
 
 //Define ListItem as a component for listing items
 //Use TouchableOpacity and onPress to make components handle clicks
-// and then pass the entire objects/items via the clickHandler function.
+// and then pass the entire objects/items via the clickHandler function to DetailScreen.
 const ListItem = (props) => {
     return (
         <TouchableOpacity onPress={() => props.clickHandler(props.item)}>
