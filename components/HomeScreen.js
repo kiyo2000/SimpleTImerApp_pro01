@@ -121,7 +121,7 @@ export const HomeScreen = (props) => {
                     items = { selectItems }
                     useNativeAndroidPickerStyle={false}
                 /> */}
-                <Select />
+                <Select items={selectItems}/>
                 <TextInput 
                     style={styles.input} 
                     placeholder="Notes"
