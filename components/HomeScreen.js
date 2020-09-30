@@ -65,29 +65,29 @@ export const HomeScreen = (props) => {
     return (
         <View style={styles.container}>
             {/* Insert render codes for Timer ---------------------------------------- */}
-            <View style={styles.containerTimer}>
-                    <Text style={styles.time}>{time} seconds</Text>
-                    <TouchableOpacity style={styles.buttonTimer} onPress={() => {
-                    setPaused(paused ? false : true)
-                    }} >
-                    {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
-                    <Text style={styles.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
-                    </TouchableOpacity>
-                    <View style={styles.rowSaveDelete}>
-                    <TouchableOpacity 
-                        style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-                        styles.buttonDelete
-                    ]}>
-                        <Text style={styles.deleteText}>Delete</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-                        styles.buttonSave
-                        ]}>
-                        <Text style={styles.saveText}>Save</Text>
-                    </TouchableOpacity>
-                    </View>
-                </View>
+            <View style={timerStyle.containerTimer}>
+        <Text style={timerStyle.time}>{time} seconds</Text>
+        <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
+          setPaused(paused ? false : true)
+        }} >
+          {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
+          <Text style={timerStyle.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
+        </TouchableOpacity>
+        <View style={timerStyle.rowSaveDelete}>
+          <TouchableOpacity 
+            style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+            timerStyle.buttonDelete
+          ]}>
+            <Text style={timerStyle.deleteText}>Delete</Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+            timerStyle.buttonSave
+            ]}>
+            <Text style={timerStyle.saveText}>Save</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
             {/* End of render code for Timer ---------------------------------------- */}
 
             {/* <Text>{props.text}</Text> */}
@@ -180,14 +180,14 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     input: {
-        fontSize: 20,
-        padding: 10,
+        fontSize: 15,
+        padding: 7,
         borderColor:"blue",
         borderWidth: 1,
         borderRadius: 15, 
     },
     flatlist: {
-        marginTop:25,
+        marginTop:45,
     },
   });
 
