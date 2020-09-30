@@ -51,47 +51,54 @@ export const TimerScreen = (props) => {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      //justifyContent: 'center',
     },
     time: {
-      fontSize: 32,
+      fontSize: 15,
     },
     buttonTimer: {
-      marginTop: 20,
+      marginTop: 5,
       backgroundColor: 'yellow',
-      padding: 15,
+      padding: 5,
       minWidth: 100,
       borderRadius: 50,
     },
     mainButtontext: {
-        fontSize: 20,
+        fontSize: 15,
         textAlign: "center",
     },
     rowSaveDelete: {
+      marginTop: 10,
       flexDirection: 'row',
       position: 'absolute',
-      bottom: 15,
+      //bottom: 15,
       justifyContent: 'space-between',
       padding: 10,
       width: '100%',
     },
     buttonDelete: {
         backgroundColor: 'red',
-        padding: 15,
+        padding: 5,
         borderRadius: 50,
+        minWidth: 100,//Added
+        marginTop: 5,//Added
       },
     buttonSave: {
       backgroundColor: 'blue',
-      padding: 15,
+      padding: 5,
       borderRadius: 50,
+      minWidth: 100,//Added
+      marginTop: 5,//Added
     },
     deleteText: {
       color: 'white',
       fontSize:15,
+      textAlign: "center",//Added
     },
     saveText: {
       color: 'white',
       fontSize:15,
+      textAlign: "center",//Added
     },
 });
 // /** 
