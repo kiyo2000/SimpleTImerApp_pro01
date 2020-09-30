@@ -63,10 +63,9 @@ export const HomeScreen = (props) => {
                         useNativeAndroidPickerStyle={false}
                     />
                     <TextInput style={styles.input} placeholder="Notes" />
-                    {/* <Picker>
-                        <Picker.Item label="Study" value="Speed Writing" />
-                        <Picker.Item label="Workout" value="Meditation" />
-                    </Picker> */}
+                    <TouchableOpacity>
+                        <Text>Add</Text>
+                    </TouchableOpacity>
                 </View>
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
