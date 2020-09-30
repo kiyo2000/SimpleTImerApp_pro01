@@ -61,6 +61,10 @@ export const HomeScreen = (props) => {
                         onValueChange={(value) => setCategory(value) }
                         items = { selectItems }
                     /> */}
+                    <Picker>
+                        <Picker.Item label="Study" value="Speed Writing" />
+                        <Picker.Item label="Workout" value="Meditation" />
+                    </Picker>
                 </View>
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
