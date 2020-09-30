@@ -32,9 +32,9 @@ export const Select = (props) =>{
                 visible = {visible}
             >
                 <View>
-                    <ScrollView
-                    
-                    ></ScrollView>
+                    <ScrollView>
+                        {Items}
+                    </ScrollView>
                 </View>
             </Modal>
         </View>
