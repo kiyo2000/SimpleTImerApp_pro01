@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'reac
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler';
+import RNPickerSelect from 'react-native-picker-select'
 
 
 export const HomeScreen = (props) => {
