@@ -12,17 +12,17 @@ export const HomeScreen = (props) => {
     )
     return (
         <View>
-            <Text>{props.text}</Text>
-            {/* <Text style={styles.title}> {props.text} </Text> */}
+            {/* <Text>{props.text}</Text> */}
+            <Text style={styles.title}> {props.text} </Text>
             {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
             {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
-            {/* <TouchableOpacity 
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={() => console.log("touchable opacity pressed")}//for debugging
                 onPress = { () => {navigation.navigate("TIMER")}}
             >
                 <Text style={styles.text}>Use Timer ?</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
@@ -39,7 +39,7 @@ export const HomeScreen = (props) => {
 //Create a component for listing items
 const ListItem = (props) => {
     return (
-        <View>
+        <View style={styles.item}>
             <Text>{props.id}</Text>
             <Text>{props.amount}</Text>
         </View>
@@ -61,5 +61,13 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 15,
+    },
+    item: {
+        paddingHorizontal: 15,
+        paddingVertical: 20,
+        borderBottomWidth: 2,
+        borderColor: "lightgray",
+        flexDirection: 'row',
+        justifyContent: "space-between",
     },
   });
