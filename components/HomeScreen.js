@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Button, Flatlist } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'react-native';
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
 
@@ -27,7 +27,7 @@ export const HomeScreen = (props) => {
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
             {/* Create Flatlist to render a list of items. Replaced Button above. */}
-            <Flatlist
+            <FlatList
                 data = {props.data}
                 renderItem ={renderList}
                 keyExtractor = { item => item.id }
