@@ -29,10 +29,16 @@ export const TimerScreen = (props) => {
           <Text style={styles.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
         </TouchableOpacity>
         <View style={styles.row}>
-          <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.delete]}>
+          <TouchableOpacity 
+            style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+            styles.delete]}
+          >
             <Text style={styles.saveText}>Delete</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[{ display: paused && time > 0 ? "flex" : "none" }, styles.save]}>
+          <TouchableOpacity 
+            style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+            styles.save
+            ]}>
             <Text style={styles.saveText}>Save</Text>
           </TouchableOpacity>
         </View>
