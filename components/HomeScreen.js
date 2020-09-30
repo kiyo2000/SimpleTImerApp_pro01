@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'react-native';
 // Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
+import { TextInput } from 'react-native-gesture-handler';
 
 
 export const HomeScreen = (props) => {
@@ -16,12 +17,12 @@ export const HomeScreen = (props) => {
         <ListItem 
         id={item.id} 
         amount={item.amount} 
-        category={item.category} 
+        category={item.category}
+        note={item.note}
         clickHandler = {showDetail}
         item ={item}
         />
     )
-
     //Make the App to navigate by navigate method 
     // Pass item as a parameter.
     const showDetail = ( item ) =>{
@@ -32,7 +33,7 @@ export const HomeScreen = (props) => {
     return (
         <View>
             {/* <Text>{props.text}</Text> */}
-            <Text style={styles.title}> {props.text} </Text>
+            {/* <Text style={styles.title}> {props.text} </Text> */}
             {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
             {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
             <TouchableOpacity 
@@ -42,7 +43,9 @@ export const HomeScreen = (props) => {
             >
                 <Text style={styles.text}>Use Timer ?</Text>
             </TouchableOpacity>
-
+                <View>
+                    <TextInput placeholder="Amount" />
+                </View>
             {/* As a guideline */}
             {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
             {/* Create Flatlist to render a list of items. Replaced Button above. */}
@@ -66,6 +69,7 @@ const ListItem = (props) => {
                 <Text>{props.id}:</Text>
                 <Text>${props.amount}</Text>
                 <Text>/{props.category}</Text>
+                <Text>Note: {props.note}</Text>
             </View>
         </TouchableOpacity>
     )
