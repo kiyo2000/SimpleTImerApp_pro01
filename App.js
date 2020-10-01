@@ -7,10 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //Import Firebase config here
 import { firebaseConfig } from './config/firebase'
-
 //Import Firebase library after installing fire base via expo. '*' is an alias
 import * as firebase from 'firebase'
-
 // // Initialise firebase
 if ( !firebase.apps.length){
 firebase.initializeApp( firebaseConfig )
