@@ -51,7 +51,7 @@ export default function App() {
       }
     }
 
-    //For adding items to Firebase// Resume @1:24:00
+    //For adding items to Firebase
     const addData = (item) => {
 
     }
