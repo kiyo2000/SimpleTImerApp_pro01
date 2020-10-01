@@ -20,6 +20,9 @@ export const HomeScreen = (props) => {
     const [category, setCategory] = useState(null)
     const [amount, setAmount] = useState(0)
     const [note, setNote] = useState(null)
+
+    //Validate entered values on the placeholders
+    const [validAmount, setValidAmount]= useState(false)
     
     //Represent useNavigation function
     const navigation = useNavigation()
@@ -120,6 +123,7 @@ export const HomeScreen = (props) => {
                     placeholder="Notes"
                     onChangeText={(note) => setNote(note)}
                 />
+                {/* Wroks as Button: Read the value from placeholders and submit the value */}
                 <TouchableOpacity>
                     <Text>Add</Text>
                 </TouchableOpacity>
