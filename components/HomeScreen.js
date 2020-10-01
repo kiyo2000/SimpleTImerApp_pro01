@@ -20,12 +20,20 @@ export const HomeScreen = (props) => {
     const [category, setCategory] = useState(null)
     const [amount, setAmount] = useState(0)
     const [note, setNote] = useState(null)
-
-    //Validate entered values on the placeholders
-    const [validAmount, setValidAmount]= useState(false)
+    //For validating entered values on the placeholders
+    const [validText, setValidText]= useState(false)
     
     //Represent useNavigation function
     const navigation = useNavigation()
+    // Validate if empty string is entered. 
+    const validateText = (amount) => {
+        if(amount !== null && amount !== ''){
+            setValidText(true)
+        }
+        else{
+            setValidText(false)
+        }
+    }
 
     // Receive "item" from FlatList
     // Pass a list of data choosing by ID as a function
