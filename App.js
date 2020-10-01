@@ -22,13 +22,16 @@ import { DetailScreen } from './components/DetailScreen'//As a guidline
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
-  //Declare another variable to pass the list of data
-  let listData = []
 
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
   const [auth,setAuth] = useState(false)
   //Reference data(for Realtime Firebase)
   const [dataRef, setDataRef] = useState(null)
+  //For updating data
+  const [updating,setUpdating] = useState(false)
+
+  //Declare another variable to pass the list of data
+  let listData = []
 
 
     //Pass email and password to firebase. Use catch to throw an exception
@@ -54,7 +57,9 @@ export default function App() {
         note: item.note,
         category: item.category
       }
-      firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj)
+      firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj, () =>{
+        setUpdating(false)
+      })
     }
 
     //For reading data from firebase
