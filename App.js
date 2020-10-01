@@ -62,18 +62,6 @@ export default function App() {
       })
     }
 
-    //For reading data from firebase
-    //on() is a kind of a watcher for data movements.
-    // const readData = () =>{
-    //   if(!dataRef){
-    //     return
-    //   }
-    //   // Array for containg reading data from firebae
-    //   let data =[]
-    //   firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-    //     const dataObj = snapshot.val()
-    //     const keys = Object.keys( dataObj )
-
     //Listener for data changes
     const db = firebase.database().ref(`${dataRef}/items`)
     db.on(`value`, (snapshot) => {
@@ -86,7 +74,6 @@ export default function App() {
           item.id = key
           listData.push( item )
         })
-        console.log(data)//For debugging
       }
     })
 
