@@ -64,24 +64,31 @@ export default function App() {
 
     //For reading data from firebase
     //on() is a kind of a watcher for data movements.
-    const readData = () =>{
-      if(!dataRef){
-        return
-      }
-      // Array for containg reading data from firebae
-      let data =[]
-      firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-        const dataObj = snapshot.val()
-        const keys = Object.keys( dataObj )
-        keys.forEach( (key) =>{
+    // const readData = () =>{
+    //   if(!dataRef){
+    //     return
+    //   }
+    //   // Array for containg reading data from firebae
+    //   let data =[]
+    //   firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
+    //     const dataObj = snapshot.val()
+    //     const keys = Object.keys( dataObj )
+
+    //Listener for data changes
+    const db = firebase.database().ref(`${dataRef}/items`)
+    db.on(`value`, (snapshot) => {
+      const dataObj = snapshot.val()
+      if(dataObj) {
+        let keys = Object.keys(dataObj)
+        listData = []
+        keys.forEach( (key) => {
           let item = dataObj[key]
           item.id = key
           listData.push( item )
         })
-        //listData = data;
         console.log(data)//For debugging
-      })
-    }
+      }
+    })
 
     //Check if user is logged in or not
     //setDataRef points to user id in firebase 
