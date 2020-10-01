@@ -12,13 +12,13 @@ import {Select} from './Select'
 export const HomeScreen = (props) => {
     //Temporary data holder for replacing with Firebase later on
     const selectItems = [
-        {label: 'Study', value: "Speed_typing "},
-        {label: 'Workout', value: "Stretching"},
-        {label: 'Multi Purpose', value: "Cooking_01"},
+        {label: 'Study', value: "study "},
+        {label: 'Workout', value: "workout"},
+        {label: 'Multi Purpose', value: "multi purpose"},
     ]
 
     const [category, setCategory] = useState(null)
-    //For Add
+    //For Adding amount and Note from textholder
     const [amount, setAmount] = useState(0)
     const [note, setNote] = useState(null)
     
@@ -121,7 +121,7 @@ export const HomeScreen = (props) => {
                     items = { selectItems }
                     useNativeAndroidPickerStyle={false}
                 /> */}
-                <Select items={selectItems}/>
+                <Select items={selectItems} onSelect={setCategory}/>
                 <TextInput 
                     style={styles.input} 
                     placeholder="Notes"

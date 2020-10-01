@@ -13,6 +13,8 @@ export const Select = (props) =>{
                 key={index} 
                 onPress={() => {
                     setSelected(item.value)
+                    // Pass to setCategory in HomeScreen
+                    props.onSelect(item.value)
                     setVisible(false)
                 }}
                 >
@@ -36,8 +38,9 @@ export const Select = (props) =>{
             <Modal
                 animationType="slide"
                 visible = {visible}
+                transparent ={true}
             >
-                <View>
+                <View style={selectStyles.modalView}>
                     <ScrollView>
                         {Items}
                     </ScrollView>
@@ -70,5 +73,9 @@ const selectStyles = StyleSheet.create({
         paddingHorizontal: 5,
         borderBottomColor: '#dddddd',
         borderBottomWidth: 2,
+    },
+    modalView:{
+        marginTop: 10,
+        backgroundColor: 'lightyellow'
     },
 })
