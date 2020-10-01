@@ -92,7 +92,7 @@ export const HomeScreen = (props) => {
     //** End of Timer code ---------------------------------------------- */
 
     return (
-        <View style={styles.container}>
+        <View style={styles.containerMain}>
             {/* Insert render codes for Timer ---------------------------------------- */}
             <View style={timerStyle.containerTimer}>
               <Text style={timerStyle.time}>{time} seconds</Text>
@@ -138,7 +138,7 @@ export const HomeScreen = (props) => {
         </TouchableOpacity>
 
             {/*Read text from screen  */}
-            <View style={styles.container}>
+            <View style={styles.containerHolders}>
                 {/* Change the text of amount */}
                 <TextInput 
                     style={styles.input} 
@@ -153,9 +153,9 @@ export const HomeScreen = (props) => {
                     onChangeText={(note) => setNote(note)}
                 />
                 {/* Wroks as Button: Read the value from placeholders and submit the value */}
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                     <Text>Add</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         {/* As a guideline */}
         {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
@@ -194,17 +194,30 @@ const styles = StyleSheet.create({
     button: {
         alignItems: "center",
         backgroundColor: "yellow",
-        padding: 7,
-        marginBottom: 10,
+        padding: 5,
+        marginTop: 5,
+        marginBottom: 5,
     },
     text: {
         color: "black",
         fontSize: 20,
     },
-    container:{
-        flex:1,
+    containerMain:{
+       flex:2,
         paddingHorizontal: 10,
     },
+    containerHolders:{
+      //flex:1,
+      paddingHorizontal: 5,
+      paddingBottom:5,
+  },
+  input: {
+    fontSize: 15,
+    padding: 7,
+    borderColor:"blue",
+    borderWidth: 1,
+    borderRadius: 15,
+  },
     item: {
         paddingHorizontal: 15,
         paddingVertical: 15,
@@ -213,15 +226,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-between",
     },
-    input: {
-        fontSize: 15,
-        padding: 7,
-        borderColor:"blue",
-        borderWidth: 1,
-        borderRadius: 15, 
-    },
+   
     flatlist: {
-        marginTop: 100,
+        marginTop: 5,
+        paddingTop: 5,
     },
   });
 
@@ -234,7 +242,8 @@ const styles = StyleSheet.create({
       //justifyContent: 'center',
     },
     time: {
-      fontSize: 15,
+      fontSize: 20,
+      marginTop: 10,
     },
     buttonTimer: {
       marginTop: 5,
@@ -248,7 +257,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     rowSaveDelete: {
-      marginTop: 10,
+      marginTop: 27,
       flexDirection: 'row',
       position: 'absolute',
       //bottom: 15,
