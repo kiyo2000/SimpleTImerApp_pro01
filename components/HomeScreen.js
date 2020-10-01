@@ -114,6 +114,7 @@ export const HomeScreen = (props) => {
             validText && category ? timerStyle.buttonSave : timerStyle.buttonDisabled
             ]}
             disabled={validText && category ? false : true }
+            onPress={()=> {addItem()}}
             >
                 <Text style={timerStyle.saveText}>Save</Text>
           </TouchableOpacity>
