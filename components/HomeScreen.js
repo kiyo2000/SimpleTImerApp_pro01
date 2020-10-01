@@ -97,7 +97,7 @@ export const HomeScreen = (props) => {
           </TouchableOpacity>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            !validText ? timerStyle.buttonDisabled : timerStyle.buttonSave
+            validText ? timerStyle.buttonSave : timerStyle.buttonDisabled
             ]}
             disabled={validText ? false : true }
             >
