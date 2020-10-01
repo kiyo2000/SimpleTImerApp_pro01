@@ -14,6 +14,8 @@ export const HomeScreen = (props) => {
     const selectItems = [
         {label: 'Study', value: "study "},
         {label: 'Workout', value: "workout"},
+        {label: 'Cooking', value: "cooking"},
+        {label: 'Daily Routine', value: "daily"},
         {label: 'Multi Purpose', value: "multi purpose"},
     ]
 
@@ -114,13 +116,13 @@ export const HomeScreen = (props) => {
             validText && category ? timerStyle.buttonSave : timerStyle.buttonDisabled
             ]}
             disabled={validText && category ? false : true }
-            onPress={()=> {addItem()}}
+            onPress={()=> { addItem() }}
             >
                 <Text style={timerStyle.saveText}>Save</Text>
           </TouchableOpacity>
         </View>
       </View>
-        {/* End of render code for Timer ---------------------------------------- */}
+        {/* End of render code for Timer --------------------------------------------- */}
 
         {/* <Text>{props.text}</Text> */}
         {/* <Text style={styles.title}> {props.text} </Text> */}
