@@ -37,6 +37,9 @@ export default function App() {
 
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
   const [auth,setAuth] = useState(false)
+  //Reference data(for Realtime Firebase)
+  const [dataRef, setDataRef] = useState(null)
+
 
     //Pass email and password to firebase. Use catch to throw an exception
     //Add another parameter 'intent' to check if the user credentials already exist or not. 
@@ -56,14 +59,17 @@ export default function App() {
 
     }
 
-    //Check if user is logged in or not 
+    //Check if user is logged in or not
+    //setDataRef points to user id in firebase 
     firebase.auth().onAuthStateChanged( (user) => {
       if( user ) {
         setAuth(true)
+        setDataRef(`users/${user.uid}`)
         console.log('user logged in')
       }
       else {
         setAuth(false)
+        setDataRef(null)
         console.log('user not logged in')
       }
     } )
