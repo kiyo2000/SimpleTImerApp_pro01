@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -21,19 +21,11 @@ import { HomeScreen } from './components/HomeScreen'
 import { TimerScreen } from './components/TimerScreen'
 import { AuthScreen } from './components/AuthScreen'
 import { DetailScreen } from './components/DetailScreen'//As a guidline
-
 import { TouchableOpacity } from 'react-native-gesture-handler';
-//import { useState } from 'react'; // Commented out because a new useState has been added to line 2.
-
-//As a guidline
-const Data = [
-
-]
-
 
 export default function App() {
   //Declare another variable to pass the list of data
-  const listData = Data
+  let listData = []
 
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
   const [auth,setAuth] = useState(false)
@@ -73,8 +65,18 @@ export default function App() {
       if(!dataRef){
         return
       }
+      // Array for containg reading data from firebae
+      let data =[]
       firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-        console.log(snapshot.val() )//For debugging
+        const dataObj = snapshot.val()
+        const keys = Object.keys( dataObj )
+        keys.forEach( (key) =>{
+          let item = dataObj[key]
+          item.id = key
+          data.push( item )
+        })
+        listData = data;
+        console.log(data)//For debugging
       })
     }
 
