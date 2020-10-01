@@ -97,8 +97,9 @@ export const HomeScreen = (props) => {
           </TouchableOpacity>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            timerStyle.buttonSave]}
-            disabled={!validText || !category ? true : false }
+            !validText ? timerStyle.buttonDisabled : timerStyle.buttonSave
+            ]}
+            disabled={validText ? false : true }
             >
                 <Text style={timerStyle.saveText}>Save</Text>
           </TouchableOpacity>
@@ -124,7 +125,8 @@ export const HomeScreen = (props) => {
                 <TextInput 
                     style={styles.input} 
                     placeholder="Amount"
-                    onChangeText={(amount) => setAmount(amount)}
+                    //onChangeText={(amount) => setAmount(amount)}
+                    onChangeText={(amount) => validateText(amount)}
                 />
                 <Select items={selectItems} onSelect={setCategory}/>
                 <TextInput 
@@ -249,6 +251,13 @@ const styles = StyleSheet.create({
       borderRadius: 50,
       minWidth: 100,//Added
       marginTop: 5,//Added
+    },
+    buttonDisabled:{
+        backgroundColor: '#dddddd',
+        padding: 5,
+        borderRadius: 50,
+        minWidth: 100,//Added
+        marginTop: 5,//Added 
     },
     deleteText: {
       color: 'white',
