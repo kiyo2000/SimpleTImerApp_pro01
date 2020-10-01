@@ -35,6 +35,20 @@ export const HomeScreen = (props) => {
         }
     }
 
+    //Send item data to save button for adding to firebase.(Use timestamp as well.)
+    const addItem = () => {
+      const itemId = new Date().getTime()
+      const itemText = amount
+      const itemCategory = category
+      const itemNote = note
+      props.add({
+        id: itemId,
+        amount: itemText,
+        category: itemCategory,
+        note: itemNote,
+      })
+    }
+
     // Receive "item" from FlatList
     // Pass a list of data choosing by ID as a function
     // Return a component named ListItem
