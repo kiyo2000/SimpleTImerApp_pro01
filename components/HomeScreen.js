@@ -18,7 +18,6 @@ export const HomeScreen = (props) => {
     ]
 
     const [category, setCategory] = useState(null)
-    //For Adding amount and Note from textholder
     const [amount, setAmount] = useState(0)
     const [note, setNote] = useState(null)
     
@@ -115,12 +114,6 @@ export const HomeScreen = (props) => {
                     placeholder="Amount"
                     onChangeText={(amount) => setAmount(amount)}
                 />
-                {/* Commented out for using Select.js */}
-                {/* <RNPickerSelect 
-                    onValueChange={(value) => setCategory(value) }
-                    items = { selectItems }
-                    useNativeAndroidPickerStyle={false}
-                /> */}
                 <Select items={selectItems} onSelect={setCategory}/>
                 <TextInput 
                     style={styles.input} 
