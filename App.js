@@ -54,9 +54,17 @@ export default function App() {
       }
     }
 
-    //For adding items to Firebase
+    //For adding/setting items to Firebase
     const addData = (item) => {
-
+      if(!dataRef){
+        return;
+      }
+      const dataObj = {
+        amount: item.amount,
+        note: item.note,
+        category: item.category
+      }
+      firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj)
     }
 
     //Check if user is logged in or not
