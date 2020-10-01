@@ -107,7 +107,11 @@ export default function App() {
           })}
         >
           {/* Passing objects via props( text and data) */}
-          { (props) => <HomeScreen  {...props} text="Hello, let's begin!" data={listData} /> } 
+          { (props) => <HomeScreen  {...props} 
+             text="Hello, let's begin!"
+             data={listData} 
+             add={addData}
+          /> } 
         </Stack.Screen>
         {/* As a guidline */}
         <Stack.Screen name="DETAIL" component= {DetailScreen} /> 
