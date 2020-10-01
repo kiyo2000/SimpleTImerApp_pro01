@@ -51,9 +51,9 @@ export default function App() {
       }
     }
 
-    //For adding items to Firebase
+    //For adding items to Firebase// Resume @1:24:00
     const addData = (item) => {
-      
+
     }
 
     //Check if user is logged in or not 
