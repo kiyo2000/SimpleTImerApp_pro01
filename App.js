@@ -67,12 +67,24 @@ export default function App() {
       firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj)
     }
 
+    //For reading data from firebase
+    //on() is a kind of a watcher for data movements.
+    const readData = () =>{
+      if(!dataRef){
+        return
+      }
+      firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
+        console.log(snapshot.val() )//For debugging
+      })
+    }
+
     //Check if user is logged in or not
     //setDataRef points to user id in firebase 
     firebase.auth().onAuthStateChanged( (user) => {
       if( user ) {
         setAuth(true)
         setDataRef(`users/${user.uid}`)
+        readData()
         console.log('user logged in')
       }
       else {
