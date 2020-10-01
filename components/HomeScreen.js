@@ -20,7 +20,7 @@ export const HomeScreen = (props) => {
     ]
 
     const [category, setCategory] = useState(null)
-    const [amount, setAmount] = useState(0)
+    const [amount, setText] = useState(0)
     const [note, setNote] = useState(null)
     //For validating entered values on the placeholders
     const [validText, setValidText]= useState(false)
@@ -31,6 +31,7 @@ export const HomeScreen = (props) => {
     const validateText = (amount) => {
         if(amount !== null && amount !== ''){
             setValidText(true)
+            setText(amount)
         }
         else{
             setValidText(false)
@@ -141,7 +142,7 @@ export const HomeScreen = (props) => {
                 {/* Change the text of amount */}
                 <TextInput 
                     style={styles.input} 
-                    placeholder="Amount"
+                    placeholder="Name the timer"
                     //onChangeText={(amount) => setAmount(amount)}
                     onChangeText={(amount) => validateText(amount)}
                 />
