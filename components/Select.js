@@ -66,7 +66,6 @@ const selectStyles = StyleSheet.create({
     selectImage:{
         width: 20,
         height: 20,
-        //position: 'absolute',
     },
     selectItem:{
         paddingVertical:10,
