@@ -27,9 +27,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 //As a guidline
 const Data = [
-  {  "amount": 35,  "category": "entertainment",  "id": "1598241645",  "note": "extra dessert"},
-  {  "amount": 550,  "category": "rent",  "id": "1598341768",  "note": "weekly rent"},
-  {  "amount": 45,  "category": "social",  "id": "1534241782",  "note": "watching movies"},
+
 ]
 
 
