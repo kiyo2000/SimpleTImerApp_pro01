@@ -94,46 +94,45 @@ export const HomeScreen = (props) => {
             {/* Insert render codes for the timer  feature ------------------------------- */}
             <View style={timerStyle.containerTimer}>
               <Text style={timerStyle.time}>{time} seconds</Text>
-              <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
-                setPaused(paused ? false : true)
-              }} >
-                {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
-                <Text style={timerStyle.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
-              </TouchableOpacity>
-                <View style={timerStyle.rowSaveDelete}>
-                  <TouchableOpacity 
-                    style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-                    timerStyle.buttonDelete
-                    ]}
-                    onPress={()=>{
-                        setTime(0)
-                    }}>
-                        <Text style={timerStyle.deleteText}>Delete</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity 
-                    style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-                    validText && category ? timerStyle.buttonSave : timerStyle.buttonDisabled
-                    ]}
-                    disabled={validText && category ? false : true }
-                    onPress={()=> { addItem() }}
-                    >
-                        <Text style={timerStyle.saveText}>Save</Text>
-                  </TouchableOpacity>
-                </View>
-            </View>
-        {/* End of render codes for the timer feature --------------------------------------- */}
+                <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
+                  setPaused(paused ? false : true)
+                }} >
+                  {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
+                  <Text style={timerStyle.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
+                </TouchableOpacity>
+                  <View style={timerStyle.rowSaveDelete}>
+                    <TouchableOpacity 
+                      style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+                      timerStyle.buttonDelete
+                      ]}
+                      onPress={()=>{
+                          setTime(0)
+                      }}>
+                          <Text style={timerStyle.deleteText}>Delete</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                      style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+                      validText && category ? timerStyle.buttonSave : timerStyle.buttonDisabled
+                      ]}
+                      disabled={validText && category ? false : true }
+                      onPress={()=> { addItem() }}
+                      >
+                          <Text style={timerStyle.saveText}>Save</Text>
+                    </TouchableOpacity>
+                  </View>
+            </View>{/* End of render codes for the timer feature ----------------------- */}
 
-        {/* <Text>{props.text}</Text> */}
-        {/* <Text style={styles.title}> {props.text} </Text> */}
-        {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
-        {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
-        <TouchableOpacity 
-            style={styles.button}
-            onPress={() => console.log("touchable opacity pressed")}//for debugging
-            onPress = { () => {navigation.navigate("TIMER")}}
-        >
-            <Text style={styles.text}>Use Timer ?</Text>
-        </TouchableOpacity>
+            {/* <Text>{props.text}</Text> */}
+            {/* <Text style={styles.title}> {props.text} </Text> */}
+            {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
+            {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
+            <TouchableOpacity 
+                style={styles.button}
+                onPress={() => console.log("touchable opacity pressed")}//for debugging
+                onPress = { () => {navigation.navigate("TIMER")
+            }}>
+                <Text style={styles.text}>Use Timer ?</Text>
+            </TouchableOpacity>
 
             {/*Read texts from screen and pass to validate the text  */}
             <View style={styles.containerHolders}>
@@ -143,7 +142,7 @@ export const HomeScreen = (props) => {
                     //onChangeText={(amount) => setAmount(amount)}
                     onChangeText={(amount) => validateText(amount)}
                 />
-                <Select items={selectItems} onSelect={setCategory}/>
+                  <Select items={selectItems} onSelect={setCategory}/>
                 <TextInput 
                     style={styles.input} 
                     placeholder="Notes"
@@ -151,21 +150,21 @@ export const HomeScreen = (props) => {
                 />
                 {/* Wroks as Button: Read the value from placeholders and submit the value */}
                 {/* <TouchableOpacity>
-                    <Text>Add</Text>
-                </TouchableOpacity> */}
+                        <Text>Add</Text>
+                    </TouchableOpacity> */}
             </View>
-        {/* As a guideline */}
-        {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
-        {/* Create Flatlist to render a list of items. Replaced Button above. */}
-        {/* Receiving data via props from App.js */}
-        <FlatList
-            style={styles.flatlist}
-            data = {props.data}
-            renderItem ={renderList}
-            keyExtractor = { item => item.id }
-        />
-    </View>
-    )
+              {/* As a guideline */}
+              {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
+              {/* Create Flatlist to render a list of items. Replaced Button above. */}
+              {/* Receiving data via props from App.js */}
+              <FlatList
+                  style={styles.flatlist}
+                  data = {props.data}
+                  renderItem ={renderList}
+                  keyExtractor = { item => item.id }
+              />
+        </View>
+      )
 }
 
 //Define ListItem as a component for listing items
