@@ -96,7 +96,6 @@ export default function App() {
       if( user ) {
         setAuth(true)
         setDataRef(`users/${user.uid}`)
-        readData()
         console.log('user logged in')
       }
       else {
@@ -135,6 +134,7 @@ export default function App() {
              text="Hello, let's begin!"
              data={listData} 
              add={addData}
+             extra={updating}
           /> } 
         </Stack.Screen>
         {/* As a guidline */}
