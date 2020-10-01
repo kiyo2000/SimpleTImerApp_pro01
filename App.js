@@ -51,7 +51,10 @@ export default function App() {
       }
     }
 
-    //Create a call back function
+    //For adding items to Firebase
+    const addData = (item) => {
+      
+    }
 
     //Check if user is logged in or not 
     firebase.auth().onAuthStateChanged( (user) => {
@@ -72,7 +75,6 @@ export default function App() {
         <Stack.Screen name = "SIGNUP" >
           { (props) => <AuthScreen {...props} signup={ signup } loggedIn={auth} />}
         </Stack.Screen>
-        {/* Prviously <Stack.Screen name = "HOME" component = {HomeScreen} /> */}
         {/* Adding sign out function on navigation */}
         <Stack.Screen 
           name = "HOME"
@@ -90,7 +92,7 @@ export default function App() {
             )
           })}
         >
-          {/* Passing object via props( text and data) */}
+          {/* Passing objects via props( text and data) */}
           { (props) => <HomeScreen  {...props} text="Hello, let's begin!" data={listData} /> } 
         </Stack.Screen>
         {/* As a guidline */}
