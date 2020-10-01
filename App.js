@@ -62,7 +62,7 @@ export default function App() {
       })
     }
 
-    //Listener for data changes
+    //Observe data changes on firebase
     const db = firebase.database().ref(`${dataRef}/items`)
     db.on(`value`, (snapshot) => {
       const dataObj = snapshot.val()

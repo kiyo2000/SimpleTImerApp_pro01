@@ -1,6 +1,5 @@
 import React, {useState,useEffect} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Button, FlatList } from 'react-native';
-// Navigate one screen to another
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler';
 //Commented out for using Select.js
@@ -38,7 +37,7 @@ export const HomeScreen = (props) => {
         }
     }
 
-    //Send item data to save button for adding to firebase.(Use timestamp as well.)
+    //Send item data to the save button for adding to firebase.(Use timestamp as well.)
     const addItem = () => {
       const itemId = new Date().getTime()
       const itemText = amount
@@ -67,18 +66,17 @@ export const HomeScreen = (props) => {
         />
     )
     //Make the App to navigate by navigate method 
-    // Pass item as a parameter.
     const showDetail = ( item ) =>{
         navigation.navigate("DETAIL", item)
     }
 
     //**
-    //* Insert codes for Timer ---------------------------------------------
+    //* Section 1of codes for the timer feature --------------------------------------- */
     //**
     const [time, setTime] = useState(0)
     const [paused, setPaused] = useState(true)
   
-    // global reference for timer
+    // global reference
     let timer = null
   
     useEffect(() => {
@@ -89,11 +87,11 @@ export const HomeScreen = (props) => {
         return () => clearInterval(timer)
       }
     })
-    //** End of Timer code ---------------------------------------------- */
+    //** End of Timer code ---------------------------------------------------------- */
 
     return (
         <View style={styles.containerMain}>
-            {/* Insert render codes for Timer ---------------------------------------- */}
+            {/* Insert render codes for the timer  feature ------------------------------- */}
             <View style={timerStyle.containerTimer}>
               <Text style={timerStyle.time}>{time} seconds</Text>
               <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
@@ -123,7 +121,7 @@ export const HomeScreen = (props) => {
                   </TouchableOpacity>
                 </View>
             </View>
-        {/* End of render code for Timer --------------------------------------------- */}
+        {/* End of render codes for the timer feature --------------------------------------- */}
 
         {/* <Text>{props.text}</Text> */}
         {/* <Text style={styles.title}> {props.text} </Text> */}
@@ -137,9 +135,8 @@ export const HomeScreen = (props) => {
             <Text style={styles.text}>Use Timer ?</Text>
         </TouchableOpacity>
 
-            {/*Read text from screen  */}
+            {/*Read texts from screen and pass to validate the text  */}
             <View style={styles.containerHolders}>
-                {/* Change the text of amount */}
                 <TextInput 
                     style={styles.input} 
                     placeholder="Name the timer"
