@@ -178,8 +178,8 @@ const ListItem = (props) => {
     return (
         <TouchableOpacity onPress={() => props.clickHandler(props.item)}>
             <View style={styles.item}>
-                <Text>{props.id}:</Text>
-                <Text>${props.amount}</Text>
+                <Text>{props.id} :</Text>
+                <Text>Name:{props.amount}</Text>
             </View>
         </TouchableOpacity>
     )

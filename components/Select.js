@@ -71,11 +71,11 @@ const selectStyles = StyleSheet.create({
     selectItem:{
         paddingVertical:10,
         paddingHorizontal: 5,
-        borderBottomColor: '#dddddd',
+        borderBottomColor: '#f1efef',
         borderBottomWidth: 2,
     },
     modalView:{
         marginTop: 10,
-        backgroundColor: 'lightyellow'
+        backgroundColor: '#ffbf00',
     },
 })
