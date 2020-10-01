@@ -73,9 +73,9 @@ export default function App() {
         keys.forEach( (key) =>{
           let item = dataObj[key]
           item.id = key
-          data.push( item )
+          listData.push( item )
         })
-        listData = data;
+        //listData = data;
         console.log(data)//For debugging
       })
     }

@@ -95,34 +95,34 @@ export const HomeScreen = (props) => {
         <View style={styles.container}>
             {/* Insert render codes for Timer ---------------------------------------- */}
             <View style={timerStyle.containerTimer}>
-        <Text style={timerStyle.time}>{time} seconds</Text>
-        <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
-          setPaused(paused ? false : true)
-        }} >
-          {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
-          <Text style={timerStyle.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
-        </TouchableOpacity>
-        <View style={timerStyle.rowSaveDelete}>
-          <TouchableOpacity 
-            style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            timerStyle.buttonDelete
-            ]}
-            onPress={()=>{
-                setTime(0)
-            }}>
-                <Text style={timerStyle.deleteText}>Delete</Text>
-          </TouchableOpacity>
-          <TouchableOpacity 
-            style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            validText && category ? timerStyle.buttonSave : timerStyle.buttonDisabled
-            ]}
-            disabled={validText && category ? false : true }
-            onPress={()=> { addItem() }}
-            >
-                <Text style={timerStyle.saveText}>Save</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+              <Text style={timerStyle.time}>{time} seconds</Text>
+              <TouchableOpacity style={timerStyle.buttonTimer} onPress={() => {
+                setPaused(paused ? false : true)
+              }} >
+                {/* <Text>{paused ? "Start" : "Stop"}</Text> */}
+                <Text style={timerStyle.mainButtontext}>{paused ? "Start" : "Stop"}</Text>
+              </TouchableOpacity>
+                <View style={timerStyle.rowSaveDelete}>
+                  <TouchableOpacity 
+                    style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+                    timerStyle.buttonDelete
+                    ]}
+                    onPress={()=>{
+                        setTime(0)
+                    }}>
+                        <Text style={timerStyle.deleteText}>Delete</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity 
+                    style={[{ display: paused && time > 0 ? "flex" : "none" }, 
+                    validText && category ? timerStyle.buttonSave : timerStyle.buttonDisabled
+                    ]}
+                    disabled={validText && category ? false : true }
+                    onPress={()=> { addItem() }}
+                    >
+                        <Text style={timerStyle.saveText}>Save</Text>
+                  </TouchableOpacity>
+                </View>
+            </View>
         {/* End of render code for Timer --------------------------------------------- */}
 
         {/* <Text>{props.text}</Text> */}
