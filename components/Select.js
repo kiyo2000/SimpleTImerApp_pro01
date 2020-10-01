@@ -59,6 +59,7 @@ const selectStyles = StyleSheet.create({
         width: '100%',
         borderWidth: 1,
         borderRadius: 15,
+        borderColor: 'red',
         marginTop: 10,
         marginBottom: 10,
     },
