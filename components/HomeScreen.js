@@ -97,8 +97,9 @@ export const HomeScreen = (props) => {
           </TouchableOpacity>
           <TouchableOpacity 
             style={[{ display: paused && time > 0 ? "flex" : "none" }, 
-            timerStyle.buttonSave
-            ]}>
+            timerStyle.buttonSave]}
+            disabled={!validText || !category ? true : false }
+            >
                 <Text style={timerStyle.saveText}>Save</Text>
           </TouchableOpacity>
         </View>
