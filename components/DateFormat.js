@@ -16,6 +16,7 @@ export const DateFormat = (props) => {
     setDate(`${day}, ${date} ${month} ${year}`)
   })
 
+  //Pass date value as props to DetailScreen
   return (
     <Text style={{...props.styling}}>{date}</Text>
   )
