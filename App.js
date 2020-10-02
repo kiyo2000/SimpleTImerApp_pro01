@@ -30,6 +30,10 @@ export default function App() {
   //For updating data
   const [updating,setUpdating] = useState(false)
 
+useEffect(() => {
+  setUpdating(true)
+})
+
   //Declare another variable to pass the list of data
   let listData = []
 
