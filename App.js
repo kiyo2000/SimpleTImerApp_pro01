@@ -31,13 +31,13 @@ export default function App() {
   const [dataRef, setDataRef] = useState(null)
   //For updating data
   const [updating,setUpdating] = useState(false)
-  //Control setUpadating()
+
+  /*Control setUpadating()*/
   // useEffect(() => {
   //   setUpdating(true)
   // })
 
-  //Declare another variable to pass the list of data
-  let listData = []
+
 
 
     //Pass email and password to firebase. Use catch to throw an exception
@@ -104,22 +104,22 @@ export default function App() {
     // })
 
     /*Previous code block*/
-    // const readData = () => {
-    //   if(!dataRef) {
-    //     return
-    //   }
-    //   let data = []
-    //   firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-    //     const dataObj = snapshot.val()
-    //     const keys = Object.keys( dataObj )
-    //     keys.forEach( (key) => {
-    //       let item = dataObj[key]
-    //       item.id = key
-    //       listData.push( item )
-    //     })
-    //     // listData = data
-    //   })
-    // }
+    const readData = () => {
+      if(!dataRef) {
+        return
+      }
+      let data = []
+      firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
+        const dataObj = snapshot.val()
+        const keys = Object.keys( dataObj )
+        keys.forEach( (key)  => {
+          let item = dataObj[key]
+          item.id = key
+          listData.push(item)
+        })
+      // listData = data
+    })
+  }
 
     //Check if user is logged in or not
     //setDataRef points to user id in firebase 
