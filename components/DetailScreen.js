@@ -10,7 +10,19 @@ export const DetailScreen = ( props ) =>{
         <View>
             {/* Display id via route */}
             <Text style={styles.amount}>Timer Name: {props.route.params.amount}</Text>
-            <TextInput style={styles.amount} placeholder={amount} />
+            {/* <TextInput style={styles.amount} placeholder={amount} /> */}
+            <Text style={[styles.amount, { display: editing ? 'none' : 'flex'} ]}>
+              $ {amount}
+            </Text>
+            <TextInput 
+                style={[styles.amount, {display: editing ? 'flex' : 'none'}]} 
+                placeholder={amount} 
+                onChangeText={ (amount) => { setAmount(amount) }}
+            />
+            <Button 
+                title={ editing? "save" : "edit" } 
+                onPress={ () => { editing ? setEditing(false) : setEditing(true) } } 
+            />
             <DateFormat date={props.route.params.id} styling={styles.date} />
             <Text>Id: {props.route.params.id}</Text>
             <Text>Category: {props.route.params.category}</Text>
