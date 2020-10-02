@@ -90,8 +90,12 @@ export default function App() {
     setUpdating(true)
   }
 
-  const updateDate = () =>{
-
+  const updateData = (item) => {
+    const data = {amount: item.amount,note: item.note, category: item.category }
+    firebase.database().ref(`${dataRef}/items/${item.id}`).update( data )
+    .then(() => {
+      // data is updated
+    })
   }
 
   /*New code block*/
