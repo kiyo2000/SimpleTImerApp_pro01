@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, {useState, useEffect} from 'react'
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 import { DateFormat } from './DateFormat'
 
 export const DetailScreen = ( props ) =>{

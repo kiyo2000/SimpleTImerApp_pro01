@@ -182,7 +182,10 @@ export default function App() {
           /> } 
         </Stack.Screen>
         {/* As a guidline */}
-        <Stack.Screen name="DETAIL" component= {DetailScreen} /> 
+        {/* <Stack.Screen name="DETAIL" component= {DetailScreen} />  */}
+        <Stack.Screen name="DETAIL">
+          { (props) => <DetailScreen {...props} update={updateData} /> }
+        </Stack.Screen>
         <Stack.Screen name= "TIMER" component = {TimerScreen} 
           options={({navigation,route}) => ({
           
