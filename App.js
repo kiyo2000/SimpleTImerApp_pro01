@@ -23,8 +23,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
 
-  //Resume from here. Make sure all the codes work again.
-  let listData =[]
+ 
+  
 
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
   const [auth,setAuth] = useState(false)
@@ -38,6 +38,8 @@ export default function App() {
   //   setUpdating(true)
   // })
 
+   //Resume from here. Make sure all the codes work again.
+  let listData =[]
 
 
 
@@ -65,7 +67,7 @@ export default function App() {
         category: item.category
       }
       firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj, () =>{
-        //setUpdating(true)
+        setUpdating(false)
       })
     }
     /*New code block*/
@@ -88,39 +90,39 @@ export default function App() {
     //     }
     //   })
     // }
-/*New code block*/
-    // //Observe data changes on firebase(for subscricption )
-    // const db = firebase.database().ref(`${dataRef}/items`)
-    // db.on('value', (snapshot) => {
-    //   const dataObj = snapshot.val()
-    //   if(dataObj) {
-    //     let keys = Object.keys(dataObj)
-    //     listData = []
-    //     keys.forEach( (key) => {
-    //       let item = dataObj[key]
-    //       item.id = key
-    //       listData.push(item)
-    //     })
-    //   }
-    // })
-
-    /*Previous code block*/
-    const readData = () => {
-      if(!dataRef) {
-        return
-      }
-      let data = []
-      firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-        const dataObj = snapshot.val()
-        const keys = Object.keys( dataObj )
-        keys.forEach( (key)  => {
+    /*New code block*/
+    //Observe data changes on firebase(for subscricption )
+    const db = firebase.database().ref(`${dataRef}/items`)
+    db.on('value', (snapshot) => {
+      const dataObj = snapshot.val()
+      if(dataObj) {
+        let keys = Object.keys(dataObj)
+        listData = []
+        keys.forEach( (key) => {
           let item = dataObj[key]
           item.id = key
           listData.push(item)
         })
-      // listData = data
+      }
     })
-  }
+
+  //   /*Previous code block*/
+  //   const readData = () => {
+  //     if(!dataRef) {
+  //       return
+  //     }
+  //     let data = []
+  //     firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
+  //       const dataObj = snapshot.val()
+  //       const keys = Object.keys( dataObj )
+  //       keys.forEach( (key)  => {
+  //         let item = dataObj[key]
+  //         item.id = key
+  //         listData.push(item)
+  //       })
+  //     // listData = data
+  //   })
+  // }
 
     //Check if user is logged in or not
     //setDataRef points to user id in firebase 
