@@ -5,11 +5,12 @@ import { DateFormat } from './DateFormat'
 export const DetailScreen = ( props ) =>{
     const [amount,setAmount] = useState(props.route.params.amount)
     const [editing,setEditing] = useState(false)
-    
+
     return(
         <View>
             {/* Display id via route */}
             <DateFormat date={props.route.params.id} styling={styles.date} />
+            <TextInput placeholder={amount} />
             <Text>Id: {props.route.params.id}</Text>
             <Text>Name of Timer : {props.route.params.amount}</Text>
             <Text>Category: {props.route.params.category}</Text>
