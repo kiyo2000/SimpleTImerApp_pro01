@@ -176,7 +176,7 @@ const ListItem = (props) => {
             <View style={styles.item}>
                 {/* <Text>{props.id} :</Text> */}
                 <Text>Name:{props.amount}</Text>
-                <Text>Time:{props.time}</Text>
+                <Text>Time: {props.time}s</Text>
             </View>
         </TouchableOpacity>
     )
