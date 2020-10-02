@@ -176,7 +176,7 @@ export default function App() {
         {/* As a guidline */}
         {/* <Stack.Screen name="DETAIL" component= {DetailScreen} />  */}
         <Stack.Screen name="DETAIL">
-          { (props) => <DetailScreen {...props} update={updateData} /> }
+          { (props) => <DetailScreen {...props} update={updateData} delete={deleteData}/> }
         </Stack.Screen>
         <Stack.Screen name= "TIMER" component = {TimerScreen} 
           options={({navigation,route}) => ({
