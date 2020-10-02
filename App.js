@@ -72,7 +72,6 @@ export default function App() {
     if(!dataRef) {
       return
     }
-    setUpdating(false)
     firebase.database().ref(`${dataRef}/items`).once('value')
     .then((snapshot) => {
       let data = snapshot.val()
@@ -112,24 +111,6 @@ export default function App() {
     }
   })
 
-  //   /*Previous code block*/
-  //   const readData = () => {
-  //     if(!dataRef) {
-  //       return
-  //     }
-  //     let data = []
-  //     firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-  //       const dataObj = snapshot.val()
-  //       const keys = Object.keys( dataObj )
-  //       keys.forEach( (key)  => {
-  //         let item = dataObj[key]
-  //         item.id = key
-  //         listData.push(item)
-  //       })
-  //     // listData = data
-  //   })
-  // }
-
   //Check if user is logged in or not
   //setDataRef points to user id in firebase 
   firebase.auth().onAuthStateChanged( (user) => {
@@ -158,7 +139,7 @@ export default function App() {
         <Stack.Screen 
           name = "HOME"
           options={({navigation,route}) => ({
-          // headerTitle: "HOME",
+          headerTitle: "HOME",
             headerRight: () => (
               <TouchableOpacity style={styles.signout} onPress={() => {
                 firebase.auth().signOut().then(() => {
