@@ -58,6 +58,7 @@ export default function App() {
     }
     setUpdating(false)
     const dataObj = {
+      time: item.time,
       amount: item.amount,
       note: item.note,
       category: item.category
