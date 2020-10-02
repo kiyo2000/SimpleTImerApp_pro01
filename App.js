@@ -23,9 +23,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
 
- 
-  
-
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
   const [auth,setAuth] = useState(false)
   //Reference data(for Realtime Firebase)
@@ -33,7 +30,7 @@ export default function App() {
   //For updating data
   const [updating,setUpdating] = useState(false)
 
-  /*Control setUpadating()*/
+  /*Control setUpdating()*/
   useEffect(() => {
     setUpdating(true)
     readData()
@@ -42,49 +39,69 @@ export default function App() {
    //Resume from here. Make sure all the codes work again.
   let listData =[]
 
-    //Pass email and password to firebase. Use catch to throw an exception
-    //Add another parameter 'intent' to check if the user credentials already exist or not. 
-    const signup = (intent, email, password) => {
-      if( intent == 'signup' ){
-        firebase.auth().createUserWithEmailAndPassword(email,password)
-        .catch(error => console.log(error) )
-      }
-      else if ( intent == 'login'){
-        firebase.auth().signInWithEmailAndPassword( email, password )
-        .catch( error => console.log(error) )
-      }
+  //Pass email and password to firebase. Use catch to throw an exception
+  //Add another parameter 'intent' to check if the user credentials already exist or not. 
+  const signup = (intent, email, password) => {
+    if( intent == 'signup' ){
+      firebase.auth().createUserWithEmailAndPassword(email,password)
+      .catch(error => console.log(error) )
     }
-
-    //For adding/setting items to Firebase
-    const addData = (item) => {
-      if(!dataRef){
-        return;
-      }
-      const dataObj = {
-        amount: item.amount,
-        note: item.note,
-        category: item.category
-      }
-      firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj, () =>{
-        setUpdating(false)
-      })
+    else if ( intent == 'login'){
+      firebase.auth().signInWithEmailAndPassword( email, password )
+      .catch( error => console.log(error) )
     }
+  }
 
-    /*New code block*/
-    //Observe data changes on firebase(for subscricption )
-    const db = firebase.database().ref(`${dataRef}/items`)
-    db.on('value', (snapshot) => {
-      const dataObj = snapshot.val()
-      if(dataObj) {
-        let keys = Object.keys(dataObj)
+  //For adding/setting items to Firebase
+  const addData = (item) => {
+    if(!dataRef){
+      return;
+    }
+    const dataObj = {
+      amount: item.amount,
+      note: item.note,
+      category: item.category
+    }
+    firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj, () =>{
+      setUpdating(true)
+    })
+  }
+  
+  //Update data when the subscription feature is run.
+  const readData = () => {
+    if(!dataRef) {
+      return
+    }
+    firebase.database().ref(`${dataRef}/items`).once('value')
+    .then((snapshot) => {
+      let data = snapshot.val()
+      if(data) {
+        let keys = Object.keys(data)
         listData = []
-        keys.forEach( (key) => {
-          let item = dataObj[key]
+        keys.forEach((key) => {
+          let item = data[key]
           item.id = key
           listData.push(item)
         })
       }
     })
+  }
+
+  /*New code block*/
+  //Observe data changes on firebase(for subscricption )
+  const db = firebase.database().ref(`${dataRef}/items`)
+  db.on('value', (snapshot) => {
+    const dataObj = snapshot.val()
+    if(dataObj) {
+      let keys = Object.keys(dataObj)
+      listData = []
+      keys.forEach( (key) => {
+        let item = dataObj[key]
+        item.id = key
+        listData.push(item)
+      })
+    }
+  })
 
   //   /*Previous code block*/
   //   const readData = () => {
@@ -104,21 +121,21 @@ export default function App() {
   //   })
   // }
 
-    //Check if user is logged in or not
-    //setDataRef points to user id in firebase 
-    firebase.auth().onAuthStateChanged( (user) => {
-      if( user ) {
-        setAuth(true)
-        setDataRef(`users/${user.uid}`)
-        //readData()
-        console.log('user logged in')
-      }
-      else {
-        setAuth(false)
-        setDataRef(null)
-        console.log('user not logged in')
-      }
-    } )
+  //Check if user is logged in or not
+  //setDataRef points to user id in firebase 
+  firebase.auth().onAuthStateChanged( (user) => {
+    if( user ) {
+      setAuth(true)
+      setDataRef(`users/${user.uid}`)
+      //readData()
+      console.log('user logged in')
+    }
+    else {
+      setAuth(false)
+      setDataRef(null)
+      console.log('user not logged in')
+    }
+  } )
 
   return (
     <NavigationContainer>
