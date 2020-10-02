@@ -43,6 +43,7 @@ export const HomeScreen = (props) => {
       const itemText = amount
       const itemCategory = category
       const itemNote = note
+      const itemTime = time
       props.add({
         id: itemId,
         amount: itemText,
@@ -174,7 +175,7 @@ const ListItem = (props) => {
             <View style={styles.item}>
                 {/* <Text>{props.id} :</Text> */}
                 <Text>Name:{props.amount}</Text>
-                <Text>{props.id} :</Text>
+                <Text>Time:{props.time}</Text>
             </View>
         </TouchableOpacity>
     )
