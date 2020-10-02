@@ -25,6 +25,7 @@ export const DetailScreen = ( props ) =>{
                 onPress={ () => { editing ? setEditing(false) : setEditing(true) } } 
             />
             <DateFormat date={props.route.params.id} styling={styles.date} />
+            <Text>Time: {props.route.params.time}</Text>
             <Text>Id: {props.route.params.id}</Text>
             <Text>Category: {props.route.params.category}</Text>
             <Text>Note: {props.route.params.note}</Text>
