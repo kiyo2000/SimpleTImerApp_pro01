@@ -1,8 +1,8 @@
 import React, {useState,useEffect} from 'react'
 import { StyleSheet, Text } from 'react-native'
 
-const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
 export const DateFormat = (props) => {
   const [date,setDate] = useState('')
