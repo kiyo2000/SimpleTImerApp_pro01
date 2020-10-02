@@ -13,7 +13,7 @@ export const DateFormat = (props) => {
     const day = days[dateObj.getDay()]
     const month = months[dateObj.getMonth() ]
     const year = dateObj.getFullYear()
-    setDate(`${day}, ${date} ${month} ${year}`)
+    setDate(`${day}, ${date} ${month} ${year}`)//Need " , " between??? 
   })
 
   return (
