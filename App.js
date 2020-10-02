@@ -64,7 +64,7 @@ export default function App() {
 
     //Observe data changes on firebase
     const db = firebase.database().ref(`${dataRef}/items`)
-    db.on(`value`, (snapshot) => {
+    db.on('value', (snapshot) => {
       const dataObj = snapshot.val()
       if(dataObj) {
         let keys = Object.keys(dataObj)
@@ -72,7 +72,7 @@ export default function App() {
         keys.forEach( (key) => {
           let item = dataObj[key]
           item.id = key
-          listData.push( item )
+          listData.push(item)
         })
       }
     })

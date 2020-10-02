@@ -17,6 +17,6 @@ export const DateFormat = (props) => {
   })
 
   return (
-    <Text style={{...props.styling}}>{date}</Text>
+    <Text style={{...props.style}}>{date}</Text>
   )
 } 
