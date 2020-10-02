@@ -34,14 +34,13 @@ export default function App() {
   const [updating,setUpdating] = useState(false)
 
   /*Control setUpadating()*/
-  // useEffect(() => {
-  //   setUpdating(true)
-  // })
+  useEffect(() => {
+    setUpdating(true)
+    readData()
+  })
 
    //Resume from here. Make sure all the codes work again.
   let listData =[]
-
-
 
     //Pass email and password to firebase. Use catch to throw an exception
     //Add another parameter 'intent' to check if the user credentials already exist or not. 
@@ -70,26 +69,7 @@ export default function App() {
         setUpdating(false)
       })
     }
-    /*New code block*/
-    //Update data when the subscription feature is run.
-    // const readData = () => {
-    //   if(!dataRef) {
-    //     return
-    //   }
-    //   firebase.database().ref(`${dataRef}/items`).once('value')
-    //   .then((snapshot) => {
-    //     let data = snapshot.val()
-    //     if(data) {
-    //       let keys = Object.keys(data)
-    //       listData = []
-    //       keys.forEach((key) => {
-    //         let item = data[key]
-    //         item.id = key
-    //         listData.push(item)
-    //       })
-    //     }
-    //   })
-    // }
+
     /*New code block*/
     //Observe data changes on firebase(for subscricption )
     const db = firebase.database().ref(`${dataRef}/items`)
