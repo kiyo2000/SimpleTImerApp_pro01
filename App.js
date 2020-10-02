@@ -90,7 +90,7 @@ export default function App() {
   }
 
   const updateData = (item) => {
-    const data = {amount: item.amount,note: item.note, category: item.category }
+    const data = {amount: item.amount, note: item.note, category: item.category, time: item.time }
     firebase.database().ref(`${dataRef}/items/${item.id}`).update( data )
     .then(() => {
     })
