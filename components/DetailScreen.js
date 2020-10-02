@@ -9,10 +9,10 @@ export const DetailScreen = ( props ) =>{
     return(
         <View>
             {/* Display id via route */}
+            <Text style={styles.amount}>Timer Name: {props.route.params.amount}</Text>
+            <TextInput style={styles.amount} placeholder={amount} />
             <DateFormat date={props.route.params.id} styling={styles.date} />
-            <TextInput placeholder={amount} />
             <Text>Id: {props.route.params.id}</Text>
-            <Text>Name of Timer : {props.route.params.amount}</Text>
             <Text>Category: {props.route.params.category}</Text>
             <Text>Note: {props.route.params.note}</Text>
         </View>
@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
       fontSize: 32,
       marginVertical: 15,
     },
+    amount: {
+        fontSize: 30,
+        textAlign: 'center',
+        marginVertical: 10,
+        fontWeight: '700',
+      },
     date: {
       textAlign: 'center',
       marginVertical: 10,
