@@ -66,7 +66,13 @@ export default function App() {
       })
     }
 
-    //Observe data changes on firebase
+    //Update data when the subscription feature is run.
+    const readData = () => {
+      if(!dataRef) {
+        return
+      }
+
+    //Observe data changes on firebase(for subscricption )
     const db = firebase.database().ref(`${dataRef}/items`)
     db.on('value', (snapshot) => {
       const dataObj = snapshot.val()
