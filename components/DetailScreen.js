@@ -29,6 +29,13 @@ export const DetailScreen = ( props ) =>{
             <Text>Id: {props.route.params.id}</Text>
             <Text>Category: {props.route.params.category}</Text>
             <Text>Note: {props.route.params.note}</Text>
+            <Button 
+              title="Delete" 
+              onPress={ () => { 
+                props.delete(props.route.params.id) 
+                navigation.goBack()
+              }}
+            />
         </View>
     )
 }
