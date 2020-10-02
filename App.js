@@ -23,6 +23,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
 
+  let listData =[]
+
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
   const [auth,setAuth] = useState(false)
   //Reference data(for Realtime Firebase)
