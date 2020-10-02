@@ -19,7 +19,7 @@ export const HomeScreen = (props) => {
     ]
 
     const [category, setCategory] = useState(null)
-    const [amount, setText] = useState(0)
+    const [amount, setText] = useState(null)
     const [note, setNote] = useState(null)
     //For validating entered values on the placeholders
     const [validText, setValidText]= useState(false)
@@ -57,7 +57,8 @@ export const HomeScreen = (props) => {
     // Pass the actual items and throws the entire objects /item ={item}
     const renderList = ({item}) => (
         <ListItem 
-        id={item.id} 
+        id={item.id}
+        time={item.time}
         amount={item.amount} 
         category={item.category}
         note={item.note}
@@ -121,12 +122,11 @@ export const HomeScreen = (props) => {
                     </TouchableOpacity>
                   </View>
             </View>{/* End of render codes for the timer feature ----------------------- */}
-
-            {/* <Text>{props.text}</Text> */}
+            {/* Below code block is a previous idea of showing a timer in another screen
+                , however giving it a try to Johannes's suggestion of implementing
+                the timer on the home screen for interacting with an item list on the same screen. */}
             {/* <Text style={styles.title}> {props.text} </Text> */}
-            {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
             {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
-            {/* Below "Use Timer ?" button fearure is commented out due to implement timer code on HomeScreen. */}
             {/* <TouchableOpacity 
                 style={styles.button}
                 onPress={() => console.log("touchable opacity pressed")}//for debugging
@@ -141,7 +141,7 @@ export const HomeScreen = (props) => {
                     style={styles.input} 
                     placeholder="Name the timer"
                     //onChangeText={(amount) => setAmount(amount)}
-                    onChangeText={(amount) => validateText(amount)}
+                    onChangeText={(amount) => validateText(amount)} 
                 />
                   <Select items={selectItems} onSelect={setCategory}/>
                 <TextInput 
@@ -149,10 +149,6 @@ export const HomeScreen = (props) => {
                     placeholder="Notes"
                     onChangeText={(note) => setNote(note)}
                 />
-                {/* Wroks as Button: Read the value from placeholders and submit the value */}
-                {/* <TouchableOpacity>
-                        <Text>Add</Text>
-                    </TouchableOpacity> */}
             </View>
               {/* As a guideline */}
               {/* <Button title="Go to Detail" onPress={() => {navigation.navigate()}} /> */}
@@ -176,8 +172,9 @@ const ListItem = (props) => {
     return (
         <TouchableOpacity onPress={() => props.clickHandler(props.item)}>
             <View style={styles.item}>
-                <Text>{props.id} :</Text>
+                {/* <Text>{props.id} :</Text> */}
                 <Text>Name:{props.amount}</Text>
+                <Text>{props.id} :</Text>
             </View>
         </TouchableOpacity>
     )
