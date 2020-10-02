@@ -10,7 +10,7 @@ export const DetailScreen = ( props ) =>{
             {/* <Text>Id: {props.route.params.id}</Text> */}
             {/* <Text>Amount: {props.route.params.amount}</Text> */}
             <Text>Name of Timer : {props.route.params.amount} style={styles.nameTimer}</Text>
-            <DateFormat date={props.route.params.id} style={styles.date} />
+            <DateFormat date={props.route.params.id} styling={styles.date} />
             <Text>Category: {props.route.params.category}</Text>
             <Text>Note: {props.route.params.note}</Text>
         </View>

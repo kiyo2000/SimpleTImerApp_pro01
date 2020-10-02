@@ -58,7 +58,7 @@ export default function App() {
         category: item.category
       }
       firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj, () =>{
-        setUpdating(false)
+        setUpdating(true)
       })
     }
 
