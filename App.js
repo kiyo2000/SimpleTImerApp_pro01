@@ -33,7 +33,6 @@ export default function App() {
   /*Control setUpdating()*/
   useEffect(() => {
     readData()
-    //setUpdating(true)
   })
 
    //Resume from here. Make sure all the codes work again.
@@ -85,16 +84,15 @@ export default function App() {
           item.id = key
           listData.push(item)
         })
+        setUpdating(true)
       }
     })
-    setUpdating(true)
   }
 
   const updateData = (item) => {
     const data = {amount: item.amount,note: item.note, category: item.category }
     firebase.database().ref(`${dataRef}/items/${item.id}`).update( data )
     .then(() => {
-      // data is updated
     })
   }
 

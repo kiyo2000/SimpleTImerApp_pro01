@@ -12,8 +12,9 @@ export const DetailScreen = ( props ) =>{
             <Text style={styles.amount}>Timer Name: {props.route.params.amount}</Text>
             {/* <TextInput style={styles.amount} placeholder={amount} /> */}
             <Text style={[styles.amount, { display: editing ? 'none' : 'flex'} ]}>
-              $ {amount}
+               Name:{amount}
             </Text>
+            {/* ISSUE!: textInput only allows to enter 1 string... */}
             <TextInput 
                 style={[styles.amount, {display: editing ? 'flex' : 'none'}]} 
                 placeholder={amount} 
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
       marginVertical: 15,
     },
     amount: {
-        fontSize: 30,
+        fontSize: 20,
         textAlign: 'center',
         marginVertical: 10,
         fontWeight: '700',

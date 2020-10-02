@@ -162,7 +162,8 @@ export const HomeScreen = (props) => {
                   style={styles.flatlist}
                   data = {props.data}
                   renderItem ={renderList}
-                  keyExtractor = { item => item.id } 
+                  keyExtractor = { item => item.id }
+                  extraData = {props.extra}
               />
         </View>
       )
