@@ -30,9 +30,9 @@ export default function App() {
   //For updating data
   const [updating,setUpdating] = useState(false)
   //Control setUpadating()
-  useEffect(() => {
-    setUpdating(true)
-  })
+  // useEffect(() => {
+  //   setUpdating(true)
+  // })
 
   //Declare another variable to pass the list of data
   let listData = []
@@ -62,10 +62,10 @@ export default function App() {
         category: item.category
       }
       firebase.database().ref(`${dataRef}/items/${item.id}`).set(dataObj, () =>{
-        setUpdating(true)
+        //setUpdating(true)
       })
     }
-
+    /*New code block*/
     //Update data when the subscription feature is run.
     // const readData = () => {
     //   if(!dataRef) {
@@ -85,7 +85,7 @@ export default function App() {
     //     }
     //   })
     // }
-
+/*New code block*/
     // //Observe data changes on firebase(for subscricption )
     // const db = firebase.database().ref(`${dataRef}/items`)
     // db.on('value', (snapshot) => {
@@ -100,22 +100,24 @@ export default function App() {
     //     })
     //   }
     // })
-    const readData = () => {
-      if(!dataRef) {
-        return
-      }
-      let data = []
-      firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
-        const dataObj = snapshot.val()
-        const keys = Object.keys( dataObj )
-        keys.forEach( (key) => {
-          let item = dataObj[key]
-          item.id = key
-          listData.push( item )
-        })
-        // listData = data
-      })
-    }
+
+    /*Previous code block*/
+    // const readData = () => {
+    //   if(!dataRef) {
+    //     return
+    //   }
+    //   let data = []
+    //   firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
+    //     const dataObj = snapshot.val()
+    //     const keys = Object.keys( dataObj )
+    //     keys.forEach( (key) => {
+    //       let item = dataObj[key]
+    //       item.id = key
+    //       listData.push( item )
+    //     })
+    //     // listData = data
+    //   })
+    // }
 
     //Check if user is logged in or not
     //setDataRef points to user id in firebase 
