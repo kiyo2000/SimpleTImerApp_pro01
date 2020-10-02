@@ -126,13 +126,14 @@ export const HomeScreen = (props) => {
             {/* <Text style={styles.title}> {props.text} </Text> */}
             {/* Previously: <Button title="Use timer ?" onPress = { () => {navigation.navigate("Timer")}} /> */}
             {/* Using TouchableOpacity instead of Button tag so that the colour of the title can be changed. */}
-            <TouchableOpacity 
+            {/* Below "Use Timer ?" button fearure is commented out due to implement timer code on HomeScreen. */}
+            {/* <TouchableOpacity 
                 style={styles.button}
                 onPress={() => console.log("touchable opacity pressed")}//for debugging
                 onPress = { () => {navigation.navigate("TIMER")
             }}>
                 <Text style={styles.text}>Use Timer ?</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             {/*Read texts from screen and pass to validate the text  */}
             <View style={styles.containerHolders}>

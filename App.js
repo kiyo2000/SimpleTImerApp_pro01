@@ -67,39 +67,55 @@ export default function App() {
     }
 
     //Update data when the subscription feature is run.
+    // const readData = () => {
+    //   if(!dataRef) {
+    //     return
+    //   }
+    //   firebase.database().ref(`${dataRef}/items`).once('value')
+    //   .then((snapshot) => {
+    //     let data = snapshot.val()
+    //     if(data) {
+    //       let keys = Object.keys(data)
+    //       listData = []
+    //       keys.forEach((key) => {
+    //         let item = data[key]
+    //         item.id = key
+    //         listData.push(item)
+    //       })
+    //     }
+    //   })
+    // }
+
+    // //Observe data changes on firebase(for subscricption )
+    // const db = firebase.database().ref(`${dataRef}/items`)
+    // db.on('value', (snapshot) => {
+    //   const dataObj = snapshot.val()
+    //   if(dataObj) {
+    //     let keys = Object.keys(dataObj)
+    //     listData = []
+    //     keys.forEach( (key) => {
+    //       let item = dataObj[key]
+    //       item.id = key
+    //       listData.push(item)
+    //     })
+    //   }
+    // })
     const readData = () => {
       if(!dataRef) {
         return
       }
-      firebase.database().ref(`${dataRef}/items`).once('value')
-      .then((snapshot) => {
-        let data = snapshot.val()
-        if(data) {
-          let keys = Object.keys(data)
-          listData = []
-          keys.forEach((key) => {
-            let item = data[key]
-            item.id = key
-            listData.push(item)
-          })
-        }
-      })
-    }
-
-    //Observe data changes on firebase(for subscricption )
-    const db = firebase.database().ref(`${dataRef}/items`)
-    db.on('value', (snapshot) => {
-      const dataObj = snapshot.val()
-      if(dataObj) {
-        let keys = Object.keys(dataObj)
-        listData = []
+      let data = []
+      firebase.database().ref(`${dataRef}/items`).on('value', (snapshot) => {
+        const dataObj = snapshot.val()
+        const keys = Object.keys( dataObj )
         keys.forEach( (key) => {
           let item = dataObj[key]
           item.id = key
-          listData.push(item)
+          listData.push( item )
         })
-      }
-    })
+        // listData = data
+      })
+    }
 
     //Check if user is logged in or not
     //setDataRef points to user id in firebase 
@@ -107,6 +123,7 @@ export default function App() {
       if( user ) {
         setAuth(true)
         setDataRef(`users/${user.uid}`)
+        readData()
         console.log('user logged in')
       }
       else {
