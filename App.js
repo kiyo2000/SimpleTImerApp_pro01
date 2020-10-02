@@ -23,6 +23,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
 
+  //Resume from here. Make sure all the codes work again.
   let listData =[]
 
   //Indicate user logged in or not by changing the useSate depending on uer logged in or not
