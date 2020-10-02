@@ -43,9 +43,10 @@ export const HomeScreen = (props) => {
       const itemText = amount
       const itemCategory = category
       const itemNote = note
-      const itemTime = time
+      const itemTime = time //* For time *
       props.add({
         id: itemId,
+        time: itemTime, //* For time *
         amount: itemText,
         category: itemCategory,
         note: itemNote,
