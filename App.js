@@ -71,6 +71,20 @@ export default function App() {
       if(!dataRef) {
         return
       }
+      firebase.database().ref(`${dataRef}/items`).once('value')
+      .then((snapshot) => {
+        let data = snapshot.val()
+        if(data) {
+          let keys = Object.keys(data)
+          listData = []
+          keys.forEach((key) => {
+            let item = data[key]
+            item.id = key
+            listData.push(item)
+          })
+        }
+      })
+    }
 
     //Observe data changes on firebase(for subscricption )
     const db = firebase.database().ref(`${dataRef}/items`)
