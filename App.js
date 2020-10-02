@@ -98,6 +98,16 @@ export default function App() {
     })
   }
 
+  //Delete item by id
+  const deleteData = (id) => {
+    setUpdating(false)
+    firebase.database().ref(`${dataRef}/items/${id}`).remove()
+    .then( () => {
+      setUpdating(true)
+    })
+  }
+
+
   /*New code block*/
   //Observe data changes on firebase(for subscricption )
   const db = firebase.database().ref(`${dataRef}/items`)
