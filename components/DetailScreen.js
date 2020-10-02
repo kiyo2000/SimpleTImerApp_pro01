@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 import { DateFormat } from './DateFormat'
 
 export const DetailScreen = ( props ) =>{
+    const [amount,setAmount] = useState(props.route.params.amount)
+    const [editing,setEditing] = useState(false)
+    
     return(
         <View>
             {/* Display id via route */}
