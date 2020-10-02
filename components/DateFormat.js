@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import { StyleSheet, Text } from 'react-native'
 
-const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
 export const DateFormat = (props) => {
@@ -13,7 +13,7 @@ export const DateFormat = (props) => {
     const day = days[dateObj.getDay()]
     const month = months[dateObj.getMonth() ]
     const year = dateObj.getFullYear()
-    setDate(`${day}, ${date} ${month} ${year}`)//Need " , " between??? 
+    setDate(`${day}, ${date} ${month} ${year}`)
   })
 
   return (

@@ -130,7 +130,7 @@ export default function App() {
       if( user ) {
         setAuth(true)
         setDataRef(`users/${user.uid}`)
-        readData()
+        //readData()
         console.log('user logged in')
       }
       else {
