@@ -6,7 +6,7 @@ const months = ['January','February','March','April','May','June','July','August
 
 export const DateFormat = (props) => {
   const [date,setDate] = useState('')
-
+  // Get timestamp
   useEffect( () => {
     const dateObj = new Date( parseInt(props.date) )
     const date = dateObj.getDate()
