@@ -32,8 +32,8 @@ export default function App() {
 
   /*Control setUpdating()*/
   useEffect(() => {
-    setUpdating(true)
     readData()
+    //setUpdating(true)
   })
 
    //Resume from here. Make sure all the codes work again.
@@ -57,6 +57,7 @@ export default function App() {
     if(!dataRef){
       return;
     }
+    setUpdating(false)
     const dataObj = {
       amount: item.amount,
       note: item.note,
@@ -72,6 +73,7 @@ export default function App() {
     if(!dataRef) {
       return
     }
+    setUpdating(false)
     firebase.database().ref(`${dataRef}/items`).once('value')
     .then((snapshot) => {
       let data = snapshot.val()
@@ -85,6 +87,11 @@ export default function App() {
         })
       }
     })
+    setUpdating(true)
+  }
+
+  const updateDate = () =>{
+
   }
 
   /*New code block*/
@@ -127,7 +134,8 @@ export default function App() {
     if( user ) {
       setAuth(true)
       setDataRef(`users/${user.uid}`)
-      //readData()
+      // readData()
+      // setUpdating(true)
       console.log('user logged in')
     }
     else {
