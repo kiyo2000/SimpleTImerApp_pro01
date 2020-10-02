@@ -71,7 +71,7 @@ export const HomeScreen = (props) => {
     }
 
     //**
-    //* Section 1of codes for the timer feature --------------------------------------- */
+    //* Codes for the timer feature --------------------------------------- */
     //**
     const [time, setTime] = useState(0)
     const [paused, setPaused] = useState(true)
@@ -200,11 +200,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     containerMain:{
-       flex:2,
+       flex:1,
         paddingHorizontal: 10,
     },
     containerHolders:{
       //flex:1,
+      //marginTop:100,
       paddingHorizontal: 5,
       paddingBottom:5,
   },
@@ -233,9 +234,11 @@ const styles = StyleSheet.create({
   // CSS for Timer -------------------------------------------------------------------
   const timerStyle = StyleSheet.create({
     containerTimer: {
-      flex: 1,
+      //flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
+      paddingBottom:10,
+      marginBottom: 5,
       //justifyContent: 'center',
     },
     time: {
